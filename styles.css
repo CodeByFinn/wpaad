@@ -12,10 +12,11 @@ body {
   width: 90%;
   height: 100vh;
   margin: 0 auto;
+  margin-top: 30px;
 
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 h1 {
@@ -61,7 +62,7 @@ h2 {
 }
 
 footer {
-  position: absolute;
+  position: fixed;
   bottom: 0;
 
   width: 100%;
@@ -88,5 +89,12 @@ footer {
   }
   .links a {
     margin: 10px 30px;
+  }
+}
+
+@media only screen and (min-height: 600px) {
+  .wrapper {
+    justify-content: center;
+    margin-top: 0;
   }
 }
