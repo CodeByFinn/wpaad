@@ -35,6 +35,6 @@ function verschluesselnCaesar(klartext, schluessel, alphabet) {
 
   }
 
-  return output
+  return output;
 }
 ```
