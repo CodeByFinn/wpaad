@@ -1,0 +1,48 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+main {
+  width: 80%;
+  margin: 0 auto;
+  max-width: 800px;
+}
+
+h1 {
+  font-size: 50px;
+  letter-spacing: 2px;
+
+  text-align: center;
+
+  color: #7759cf;
+  padding: 20px;
+}
+
+h2 {
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 15px;
+}
+
+a {
+  text-decoration: none;
+  color: #7759cf
+}
+
+ul {
+  padding-left: 30px;
+}
+
+.seal {
+  padding-top: 20px;
+}
+p:last-of-type {
+  padding-top: 10px;
+  padding-bottom: 20px;
+}
