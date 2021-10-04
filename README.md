@@ -1,6 +1,10 @@
 # kryptologie
+(german -> cryptography)
 A website about cryptography
-read all about or project in our [[https://github.com/FinnTheProgrammer/kryptologie.wiki.git| Wiki]]
+Hi 👋
+We are Finn and Jonathan. 
+A team of junior programmers trying to make a website about cryptography
+read all about or project in our Wiki
 
 ## Possible cyphers
 * Caesar Cypher
