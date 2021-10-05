@@ -1,12 +1,5 @@
-# kryptologie
-(german -> cryptography) <br>
-A website about cryptography <br>
-Hi 👋 <br>
-We are Finn and Jonathan. <br>
-A team of junior programmers trying to make a website about cryptography. <br>
-Read all about or project in our Wiki
-
-## Possible cyphers
-* Caesar Cypher
-* Vigenere
-
+# Hi :wave: - Welcome To kryptologie
+## A website about cryptograph
+We are Finn and Jonathan :smile: <br />
+A team of junior programmers trying to make a [website](finntheprogrammer.github.io/kryptologie) about cryptography. <br />
+Read all about the project in our Wiki!
