@@ -36,18 +36,20 @@ h2 {
   padding: 10px;
 }
 
-.links {
+.link-wrapper {
   width: 90%;
   margin: 10px auto;
   display: flex;
+  flex-wrap: wrap-reverse;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
 }
 
-.links a {
+.link {
   margin: 10px 10px;
   padding: 8px 15px;
+  display: block;
 
   text-decoration: none;
   color: #000000;
@@ -55,7 +57,22 @@ h2 {
   border: 3px solid #000000;
 }
 
-.links a:hover {
+.more {
+  border-color: #7759cf;
+  color: #7759cf;
+  font-weight: bold;
+}
+
+.more-wrapper {
+  margin: 0 auto;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.link:hover {
   background-color: #7759cf;
   border-color: #7759cf;
   color: #ffffff;
@@ -83,12 +100,16 @@ footer {
 }
 
 @media only screen and (min-width: 600px) {
-  .links {
+  .link-wrapper {
     flex-direction: row;
     width: auto;
   }
-  .links a {
+  .link {
     margin: 10px 30px;
+  }
+  .more-wrapper {
+    flex-basis: 100%;
+    margin-top: 30px;
   }
 }
 
