@@ -1,0 +1,548 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+/* General styles */
+
+section {
+  margin: 20px 0;
+  padding: 20px;
+}
+
+section:first-of-type {
+  margin-top: 0;
+}
+
+section h1 {
+  margin: 80px 0 30px 0;
+  font-size: 60px;
+  text-align: center;
+}
+
+section h2 {
+  text-align: center;
+  font-size: 30px;
+  margin: 20px 0;
+}
+
+section a {
+  margin: 15px 10px;
+  padding: 7px 15px;
+  display: block;
+
+  text-decoration: none;
+  text-align: center;
+  font-size: 20px;
+  color: #ffffff;
+  border-radius: 25px;
+  border: 2px solid #ffffff;
+}
+
+em {
+  font-family: "Roboto Slab", monospace;
+  font-style: normal;
+}
+
+button {
+  padding: 10px;
+  display: block;
+  margin: 0 auto;
+
+  outline: none;
+  border: none;
+  background: #5e42e4;
+  color: #ffffff;
+  font-size: 18px;
+
+  border-radius: 20px;
+}
+
+input[type="radio"] {
+  display: none;
+}
+
+label {
+  display: block;
+
+  padding: 10px;
+  text-align: center;
+  border-radius: 20px;
+
+  color: #000000;
+  background: #ebebeb;
+}
+
+input[type="radio"]:checked + label {
+  color: #ffffff;
+  background: #5e42e4;
+}
+
+
+.landing-small {
+  background: #5e42e4;
+  color: #ffffff;
+}
+
+.landing-small h1 {
+  margin: 15px auto;
+  width: 80%;
+  font-size: 55px;
+}
+
+.main-width {
+  width: 80%;
+  max-width: 800px;
+}
+
+/* Styles for the nav */
+nav a {
+  display: block;
+  padding: 10px;
+
+  text-decoration: none;
+  color: #5e42e4;
+  font-size: 20px;
+}
+
+/* Styles for the footer */
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 15px;
+}
+
+footer a {
+  text-decoration: none;
+  color: #5e42e4;
+}
+
+footer p {
+  padding: 10px;
+}
+
+footer .policy {
+  padding: 10px;
+}
+
+
+
+/* Styles for different messages */
+
+.info-message, .error-message {
+  margin: 0 auto;
+}
+
+.info-message p, .error-message p {
+  box-shadow: 0 0 5px 3px #ebebeb;
+  border-radius: 10px;
+
+  padding: 15px;
+  margin: 10px auto 50px auto;
+}
+
+.error-message p {
+  border: 2px solid #e44242;
+  box-shadow: 0 0 5px 3px #f5e6e6;
+}
+
+
+
+/* Styles for the different sections of the landing page */
+
+/* Styles for the landing section */
+.landing {
+  overflow: hidden;
+  position: relative;
+
+  color: #ffffff;
+  background: #5e42e4;
+}
+
+.landing .background-circle {
+  position: absolute;
+
+  border-radius: 50%;
+  border: 20px solid #ab42e4;
+}
+
+.landing .background-circle:nth-of-type(1) {
+  width: 70vw;
+  height: 70vw;
+
+  top: -30vw;
+  left: -20vw;
+}
+
+.landing .background-circle:nth-of-type(2) {
+  width: 80vw;
+  height: 80vw;
+
+  bottom: -30vw;
+  right: -40vw;
+}
+
+.landing .background-circle:nth-of-type(3) {
+  width: 50vw;
+  height: 50vw;
+
+  bottom: -20vw;
+  left: 20vw;
+}
+
+.landing .content {
+  height: 100vh;
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.name {
+  font-family: 'Roboto Slab', monospace;
+  font-size: 30px;
+  text-align: center;
+
+  opacity: 0;
+  animation-duration: 1s;
+  animation-delay: 1.5s;
+  animation-fill-mode: forwards;
+  animation-name: fade-in;
+}
+
+.landing h1 {
+  margin: 15px auto;
+  width: 80%;
+  font-size: 70px;
+
+  opacity: 0;
+  animation-duration: 2s;
+  animation-delay: 0.5s;
+  animation-fill-mode: forwards;
+  animation-name: fade-in;
+}
+
+.landing a {
+  opacity: 0;
+  animation-duration: 1s;
+  animation-delay: 2.5s;
+  animation-fill-mode: forwards;
+  animation-name: fade-in;
+}
+
+/* Styles for the info section */
+.info p:first-of-type {
+  margin: 15px auto;
+  font-size: 20px;
+}
+
+.more-info {
+  margin: 50px auto 15px auto;
+  text-align: center;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+/* Styles for the services section */
+.card {
+  margin: 70px auto;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+
+  box-shadow: 0 0 5px 3px #e8e6f5;
+  border-radius: 10px;
+}
+
+.card .content {
+  padding: 20px;
+
+  width: 75%;
+}
+
+.card .highlighted {
+  width: 25%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: #5e42e4;
+  border-radius: 10px;
+
+  box-shadow: -5px 0 5px 0 #e8e6f5;
+}
+
+.card a {
+  position: relative;
+
+  font-weight: bold;
+
+  background: #ffffff;
+  color: #5e42e4;
+  border-radius: 30px;
+}
+
+/* Styles for the banner section */
+
+.banner {
+  background: #5e42e4;
+  padding-bottom: 80px;
+}
+
+.banner h1 {
+  color: #ffffff;
+}
+
+.banner a {
+  width: 250px;
+  margin: 0 auto;
+
+  font-weight: bold;
+  font-size: 25px;
+}
+
+
+
+/* Styles for the select page */
+
+.options-section h2 {
+  margin: 30px;
+  font-size: 40px;
+  text-align: center;
+}
+
+.options-section a {
+  display: block;
+  padding: 5px 10px;
+  margin: 20px;
+  width: 200px;
+
+  color: #5e42e4;
+  border: 2px solid #5e42e4;
+  font-size: 18px;
+}
+
+.options-wrapper {
+  margin: 80px auto;
+
+  box-shadow: 0 0 5px 3px #e8e6f5;
+  padding: 30px;
+  border-radius: 10px;
+}
+
+.options {
+  display: flex;
+  justify-content: center;
+
+  flex-wrap: wrap;
+}
+
+
+
+/* Styles for the different cipher pages */
+
+/* Styles for the textareas */
+
+textarea {
+  display: block;
+  margin: 20px auto 40px auto;
+
+  outline: none;
+  resize: none;
+
+  padding: 10px;
+
+  box-shadow: 0 0 5px 3px #ebebeb;
+  -webkit-appearance: none;
+  border: 2px solid #ebebeb;
+  border-radius: 10px;
+
+  font-size: 18px;
+
+  word-spacing: 5px;
+}
+
+textarea:focus {
+  box-shadow: 0 0 5px 3px #e8e6f5;
+  border: 2px solid #5e42e4;
+}
+
+/* Styles for the key section */
+
+details {
+  margin: 40px auto;
+
+  outline: none;
+  border: none;
+}
+
+summary {
+  width: 100%;
+  text-align: center;
+  font-weight: bold;
+  font-size: 20px;
+
+  margin-bottom: 20px;
+
+  box-shadow: 0 0 5px 3px #ebebeb;
+  padding: 10px;
+  border-radius: 23px;
+}
+
+.key-container {
+  display: flex;
+  flex-wrap: wrap;
+
+  justify-content: center;
+  align-items: center;
+}
+
+.key-container label {
+  width: 40px;
+  height: 40px;
+  margin: 10px;
+
+  font-size: 18px;
+}
+
+.keep-container p {
+  margin: 30px auto 10px auto;
+
+  text-align: center;
+  font-size: 20px;
+}
+
+.keep-container label {
+  width: 200px;
+  margin: 20px auto;
+
+  font-size: 16px;
+}
+
+.keep-container label:last-of-type {
+  margin-bottom: 60px;
+}
+
+/* Styles for the feedback message after copying */
+
+.feedback-copy {
+  opacity: 0;
+
+  text-align: center;
+  padding: 15px;
+  margin: 10px auto;
+}
+
+.fade-out {
+  opacity: 1 !important;
+  animation-duration: 1s;
+  animation-delay: 1.5s;
+  animation-fill-mode: forwards;
+  animation-name: fade-out;
+}
+
+
+
+/* Styles for mobile */
+
+@media only screen and (max-width: 600px) {
+  .main-width {
+    width: 100%;
+  }
+
+  section h1 {
+    font-size: 50px;
+  }
+
+  .landing h1 {
+    text-align: left;
+    font-size: 50px;
+    width: 100%;
+  }
+
+  .landing-small h1 {
+    text-align: left;
+    font-size: 40px;
+    width: 100%;
+  }
+
+  .landing .background-circle:nth-of-type(3) {
+    display: none;
+  }
+
+  footer {
+    flex-direction: column;
+  }
+
+  footer a {
+    margin: 20px 0;
+  }
+
+
+  .card {
+    flex-direction: column;
+  }
+
+  .card .content {
+    width: 100%;
+  }
+
+  .card .highlighted {
+    width: 100%;
+    box-shadow: none;
+    background: #ffffff;
+  }
+
+  .card a {
+    background: #5e42e4;
+    color: #ffffff;
+    font-size: 18px;
+  }
+
+
+  .banner a {
+    font-size: 20px;
+  }
+
+
+  .options-wrapper {
+    padding: 10px;
+    width: 100%;
+  }
+
+  .options-section h2 {
+    margin: 10px;
+    font-size: 30px;
+  }
+}
+
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
