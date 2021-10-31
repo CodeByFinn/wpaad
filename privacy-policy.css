@@ -8,6 +8,22 @@ body {
   font-family: "Roboto", sans-serif;
 }
 
+nav {
+  background: #5e42e4;
+}
+
+nav a {
+  display: block;
+  padding: 10px;
+
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 20px;
+
+  font-family: "Roboto Slab", monospace;
+  font-style: normal;
+}
+
 main {
   width: 80%;
   margin: 0 auto;
@@ -20,7 +36,7 @@ h1 {
 
   text-align: center;
 
-  color: #7759cf;
+  color: #5e42e4;
   padding: 20px;
 }
 
@@ -32,7 +48,7 @@ h2 {
 
 a {
   text-decoration: none;
-  color: #7759cf
+  color: #5e42e4
 }
 
 ul {

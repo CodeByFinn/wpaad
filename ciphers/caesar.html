@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+
+  <title>wpaad</title>
+  <link rel="stylesheet" href="../styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <nav>
+    <a href="../index.html"><em>wpaad</em></a>
+  </nav>
+
+  <section class="landing-small">
+    <h1>Caesar-Verschlüsselung</h1>
+  </section>
+
+  <section class="message-section">
+    <div class="info-message main-width">
+      <p>Lege zunächst den Schlüssel fest und gib dann in das obere Textfeld einen Klartext oder in das untere Textfeld einen Geheimtext ein, der dann ver- beziehungsweise entschlüsselt wird. <br />
+        Wird der Schlüssel nach Eingabe eines Texts geändert, muss ausgewählt werden, ob der Klar- oder Geheimtext behalten werden soll, da sich der andere Text mit der Änderung des Schlüssels ebenfalls verändert.
+      </p>
+    </div>
+
+    <details class="main-width">
+      <summary>
+        Schlüssel
+      </summary>
+      <div class="key-container" id="key-container">
+
+      </div>
+      <div class="keep-container">
+        <p class="main-width">Bei Schlüsseländerung</p>
+        <input type="radio" name="keep" id="keep-plain-text" value="keep-plain-text" checked />
+        <label for="keep-plain-text">Klartext behalten</label>
+        <input type="radio" name="keep" id="keep-cipher-text" value="keep-cipher-text" />
+        <label for="keep-cipher-text">Geheimtext behalten</label>
+      </div>
+    </details>
+
+    <h2>Klartext</h2>
+    <textarea rows=10 oninput="inputChanged(this, 'caesar', true)" id="plain-text" class="main-width"></textarea>
+
+    <div class="error-message" id="error-message">
+    </div>
+
+    <h2>Geheimtext</h2>
+    <textarea rows=10 oninput="inputChanged(this, 'caesar', false)" id="cipher-text" class="main-width" autocomplete="off" spellcheck="false"></textarea>
+
+    <button onclick="copy()" class="main-width">Kopieren</button>
+    <p id="feedback-copy" class="feedback-copy"></p>
+  </section>
+
+  <script>
+    // Adds input elements for the caesar-keys
+    let keyContainer = document.getElementById("key-container");
+    for (let i = 1; i <= 26; i++) {
+      keyContainer.innerHTML += `<input type="radio" name="key" id="${i}" value="${i}" oninput="caesarKeyChanged(this.value)" /> <label for="${i}">${i}</label>`;
+    }
+  </script>
+
+  <script>
+    // Deals with the change of the key
+    let caesarKey = 2;
+    let keyElem = document.getElementById("2");
+    keyElem.checked = true;
+    function caesarKeyChanged(value) {
+      caesarKey = +value;
+
+      let keepElem = document.getElementById("keep-plain-text");
+      if (keepElem.checked) {
+        let inputElem = document.getElementById("plain-text");
+        inputChanged(inputElem, 'caesar', true);
+      } else {
+        let inputElem = document.getElementById("cipher-text");
+        inputChanged(inputElem, 'caesar', false);
+      }
+    }
+  </script>
+
+  <script src="scripts.js"></script>
+</body>
+</html>
