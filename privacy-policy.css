@@ -1,0 +1,64 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+nav {
+  background: #5e42e4;
+}
+
+nav a {
+  display: block;
+  padding: 10px;
+
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 20px;
+
+  font-family: "Roboto Slab", monospace;
+  font-style: normal;
+}
+
+main {
+  width: 80%;
+  margin: 0 auto;
+  max-width: 800px;
+}
+
+h1 {
+  font-size: 50px;
+  letter-spacing: 2px;
+
+  text-align: center;
+
+  color: #5e42e4;
+  padding: 20px;
+}
+
+h2 {
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 15px;
+}
+
+a {
+  text-decoration: none;
+  color: #5e42e4
+}
+
+ul {
+  padding-left: 30px;
+}
+
+.seal {
+  padding-top: 20px;
+}
+p:last-of-type {
+  padding-top: 10px;
+  padding-bottom: 20px;
+}
