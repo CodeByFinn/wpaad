@@ -1,4 +1,4 @@
-# Hi :wave: - Welcome To kryptologie
+# Hi :wave: - Welcome To wpaad
 ## A website about cryptography
 We are Finn and Jonathan :smile: <br />
 A team of junior programmers trying to make a [website](https://codebyfinn.github.io/wpaad) about cryptography. <br />
