@@ -101,6 +101,16 @@ input[type="radio"]:checked + label {
 }
 
 /* Styles for the nav */
+nav {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+nav img {
+  width: 80px;
+}
+
 nav a {
   display: block;
   padding: 10px;
