@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+
+  <title>Vigenère</title>
+  <link rel="stylesheet" href="../explore-styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital@0;1&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+
+  <script src="vigenere.js" defer></script>
+  <script src="../scripts/scrollbar.js" defer></script>
+  <script src="../scripts/code-animation.js" defer></script>
+  <script src="../scripts/copy.js" defer></script>
+</head>
+
+<body>
+
+  <main>
+    <div class="nav-container">
+        <nav>
+          <a href="../../index.html" id="home">
+            <img src="../../icons/home.svg" />
+          </a>
+          <a href="../../index.html#gallery" id="gallery">
+            <img src="../../icons/grid.svg" />
+          </a>
+          <div class="divider"></div>
+          <a href="#explanation">
+            <img src="../../icons/align-left.svg" />
+          </a>
+          <div class="connect"></div>
+          <a href="#test">
+            <img src="../../icons/cpu.svg" />
+          </a>
+          <div class="connect"></div>
+          <a href="#code">
+            <img src="../../icons/terminal.svg" />
+          </a>
+          <div class="connect"></div>
+          <a href="#further-reading">
+            <img src="../../icons/book.svg" />
+          </a>
+
+          <select id="choose-paragraph" onchange="scrollParagraph()">
+            <option value="0">Erklärung</option>
+            <option value="1">Testen</option>
+            <option value="2">Code</option>
+            <option value="3">Weiterlesen</option>
+          </select>
+        </nav>
+      </div>
+
+    <h1 id="vigenere">Vigenère-Verschlüsselung</h1>
+
+    <section id="explanation">
+      <div class="heading">
+          <img src="../../icons/align-left.svg" />
+          <h2>Erklärung</h2>
+      </div>
+
+      <div class="content">
+        <p>
+          Die Vigenère-Verschlüsselung ist ein Verschlüsselungsverfahren, dass im 16. Jahrhundert aufkam. Es ist ähnlich zur Caesar-Verschlüsselung,
+          arbeitet jedoch mit mehreren Caesar-Alphabeten, sodass es zur Gruppe der polyalphabetischen Substitutionsverfahren zählt.
+        </p>
+        <p>
+          Statt wie bei der Caesar-Verschlüsselung nur einen Buchstaben bzw. eine Zahl als Schlüssel anzugeben, verwendet man bei der Vigenère-Verschlüsselung
+          mehrere Buchstaben. Als Beispiel nehmen wir hier &quot;test&quot;. Der Schlüssel wird nun über die zu verschlüsselnde Nachricht, hier &quot;guten morgen&quot;,
+          geschrieben. Der Schlüssel wird dabei so oft wie nötig wiederholt.
+        </p>
+        <p class="example">
+          testt esttes <br />
+          guten morgen
+        </p>
+        <p>
+          Jeder Buchstabe wird nun mit der Caesar-Verschlüsselung verschlüsselt. Der Caesar-Schlüssel für einen Buchstaben ist dabei der darüber stehende Buchstabe.
+          Das g wird mit dem Schlüssel t (entspricht dem Schlüssel 19) bei Caesar zum z. Das u mit dem Schlüssel e (entspricht dem Schlüssel 4) zum y.
+        </p>
+        <p class="example">
+          testt esttes <br />
+          guten morgen <br />
+          &darr;&darr;&darr;&darr;&darr; &darr;&darr;&darr;&darr;&darr;&darr; <br />
+          zylxg qgkzif
+        </p>
+        <p>
+          Statt immer den Umweg über die Caesar-Verschlüsselung zu gehen, kann man auch das sogenannte Vigenère-Quadrat nutzen. In diesem sind alle Caesar-Alphabete
+          untereinander notiert:
+        </p>
+        <p class="example more-space" id="vigenere-example">
+          &nbsp;&nbsp;| <em>abcdefghijklmnopqrstuvwxyz</em> <br />
+          ------------------------------ <br />
+          <em>a</em> | <em>abcdefghijklmnopqrstuvwxyz</em> <br />
+          <em>b</em> | <em>b</em>cdefghijklmnopqrstuvwxyza <br />
+          <em>c</em> | <em>c</em>defghijklmnopqrstuvwxyzab <br />
+          <em>d</em> | <em>d</em>efghijklmnopqrstuvwxyzabc <br />
+          <em>e</em> | <em>e</em>fghijklmnopqrstuvwxyzabcd <br />
+          <em>f</em> | <em>f</em>ghijklmnopqrstuvwxyzabcde <br />
+          <em>g</em> | <em>g</em>hijklmnopqrstuvwxyzabcdef <br />
+          <em>h</em> | <em>h</em>ijklmnopqrstuvwxyzabcdefg <br />
+          <em>i</em> | <em>i</em>jklmnopqrstuvwxyzabcdefgh <br />
+          <em>j</em> | <em>j</em>klmnopqrstuvwxyzabcdefghi <br />
+          <em>k</em> | <em>k</em>lmnopqrstuvwxyzabcdefghij <br />
+          <em>l</em> | <em>l</em>mnopqrstuvwxyzabcdefghijk <br />
+          <em>m</em> | <em>m</em>nopqrstuvwxyzabcdefghijkl <br />
+          <em>n</em> | <em>n</em>opqrstuvwxyzabcdefghijklm <br />
+          <em>o</em> | <em>o</em>pqrstuvwxyzabcdefghijklmn <br />
+          <em>p</em> | <em>p</em>qrstuvwxyzabcdefghijklmno <br />
+          <em>q</em> | <em>q</em>rstuvwxyzabcdefghijklmnop <br />
+          <em>r</em> | <em>r</em>stuvwxyzabcdefghijklmnopq <br />
+          <em>s</em> | <em>s</em>tuvwxyzabcdefghijklmnopqr <br />
+          <em>t</em> | <em>t</em>uvwxyzabcdefghijklmnopqrs <br />
+          <em>u</em> | <em>u</em>vwxyzabcdefghijklmnopqrst <br />
+          <em>v</em> | <em>v</em>wxyzabcdefghijklmnopqrstu <br />
+          <em>w</em> | <em>w</em>xyzabcdefghijklmnopqrstuv <br />
+          <em>x</em> | <em>x</em>yzabcdefghijklmnopqrstuvw <br />
+          <em>y</em> | <em>y</em>zabcdefghijklmnopqrstuvwx <br />
+          <em>z</em> | <em>z</em>abcdefghijklmnopqrstuvwxy <br />
+        </p>
+        <p class="example more-space" id="mobile-vigenere-example">
+          &nbsp;&nbsp;| <em>abcdefghijklmnopqrstuvwxyz</em> <br />
+          ------------------------------ <br />
+          <em>a</em> | <em>abcdefghijklmnopqrstuvwxyz</em> <br />
+          <em>b</em> | <em>b</em>cdefghijklmnopqrstuvwxyza <br />
+          <em>c</em> | <em>c</em>defghijklmnopqrstuvwxyzab <br />
+          <em>d</em> | <em>d</em>efghijklmnopqrstuvwxyzabc <br />
+          <em>e</em> | <em>e</em>fghijklmnopqrstuvwxyzabcd <br />
+          <em>f</em> | <em>f</em>ghijklmnopqrstuvwxyzabcde <br />
+          <em>g</em> | <em>g</em>hijklmnopqrstuvwxyzabcdef <br />
+          <em>…</em> | <em>…</em>…………………………………………………………………
+        </p>
+        <p>
+          Um vom Klartext zum Geheimtext zu kommen, geht man wieder buchstabenweise vor. Man sucht die Zelle des Vigenère-Quadrats, an der sich die mit
+          dem Klartextbuchstaben beschriftete Spalte, und die mit dem Schlüsselbuchstaben beschriftete Zeile kreuzen. Da das Vigenère-Quadrat
+          symmetrisch ist, kann auch in der Spalte der Schlüsselbuchstabe und in der Zeile der Klartextbuchstabe gesucht werden.
+        </p>
+        <p>
+          Als Beispiel sucht man die Zeile, die mit g beschriftet ist, und die Spalte, die mit t beschriftet ist, und kommt zum z:
+        </p>
+        <p class="example more-space">
+          &nbsp;&nbsp;| abcdefghijklmnopqrs<em>t</em>uvwxyz <br />
+          ------------------------------ <br />
+          … | …………………………………………………<em>…</em>……………… <br />
+          f | fghijklmnopqrstuvwx<em>y</em>zabcde <br />
+          <em>g</em> | <em>ghijklmnopqrstuvwxy</em>z<em>abcdef</em> <br />
+          h | hijklmnopqrstuvwxyz<em>a</em>bcdefg <br />
+          … | …………………………………………………<em>…</em>……………… <br />
+        </p>
+        <p>
+          Beim Entschlüsseln muss man entsprechend umgekehrt vorgehen und in der Spalte, die mit t beschriftet ist, die Zelle mit z suchen. Um zum
+          Klartext zu gelangen, muss man nun nur noch die Zeilenbeschriftung ablesen.
+        </p>
+      </div>
+    </section>
+
+    <section id="test">
+      <div class="heading">
+        <img src="../../icons/cpu.svg" />
+        <h2>Testen</h2>
+      </div>
+
+      <div class="content">
+        <div class="accordion">
+          <input type="checkbox" name="alphabet" id="alphabet">
+          <label for="alphabet">
+            <div class="closed">
+              <img src="../../icons/chevron-right.svg" />
+              Alphabet
+            </div>
+            <div class="opened">
+              <img src="../../icons/chevron-down.svg" />
+              Alphabet
+            </div>
+          </label>
+          <div class="detail">
+            <p>
+              Wenn du dich nicht nur auf Kleinbuchstaben begrenzen möchtest, kannst du hier ein eigenes
+              Klartextalphabet eingeben.
+            </p>
+            <input type="text" name="alphabet-value" id="alphabet-value" value="abcdefghijklmnopqrstuvwxyz" placeholder="Gib hier das Klartextalphabet ein" onchange="testAlphabetChanged()"/>
+          </div>
+        </div>
+
+        <div class="accordion bigger-margin">
+          <input type="checkbox" name="alphabet" id="test-key">
+          <label for="test-key">
+            <div class="closed">
+              <img src="../../icons/chevron-right.svg" />
+              Schlüssel
+            </div>
+            <div class="opened">
+              <img src="../../icons/chevron-down.svg" />
+              Schlüssel
+            </div>
+          </label>
+          <div class="detail">
+            <p>
+              Die besten Schlüssel bestehen aus zufälligen Buchstabenkombinationen.
+            </p>
+            <input type="text" name="alphabet-value" id="key-label" value="test" placeholder="Gib hier dein Schlüsselwort ein" onchange="testKeyChanged()"/>
+
+          </div>
+        </div>
+
+        <div class="input-area">
+          <div class="top">
+            <div class="left">
+              <img src="../../icons/edit-2.svg" />
+              Eingabe
+            </div>
+            <div class="right"></div>
+          </div>
+          <textarea class="input" id="test-input" name="input" rows="8" placeholder="Gib hier einen Text ein" oninput="testInputChanged()"></textarea>
+        </div>
+
+        <div class="direction-select">
+          <input type="radio" name="direction" id="encrypt" value="encrypt" onclick="testDirectionChanged()" checked>
+          <label for="encrypt" id="encrypt-label">
+            <img src="../../icons/lock.svg" />
+            Verschlüsseln
+          </label>
+          <input type="radio" name="direction" id="decrypt" value="decrypt" onclick="testDirectionChanged()">
+          <label for="decrypt" id="decrypt-label">
+            <img src="../../icons/unlock.svg" />
+            Entschlüsseln
+          </label>
+        </div>
+
+        <div class="input-area">
+          <div class="top">
+            <div class="left">
+              <img src="../../icons/lock.svg" id="direction-icon-lock" />
+              <img src="../../icons/unlock.svg" id="direction-icon-unlock" />
+              Ausgabe
+            </div>
+            <div class="right"></div>
+          </div>
+          <textarea class="output" id="test-output" name="input" rows="8" placeholder="Hier steht dann der verschlüsselte Text" readonly></textarea>
+        </div>
+
+        <button id="copy-button" onclick="copy(this)" class="copy-button">Kopieren</button>
+      </div>
+    </section>
+
+    <section id="code">
+      <div class="heading">
+        <img src="../../icons/terminal.svg" />
+        <h2>Code</h2>
+      </div>
+
+      <div class="content">
+        <div class="accordion show-code top-level mobile-instructions-container">
+          <input type="checkbox" name="code-instructions" id="code-instructions">
+          <label for="code-instructions">
+            <div class="closed">
+              <img src="../../icons/chevron-right.svg" />
+              Codetutorial einblenden
+            </div>
+            <div class="opened">
+              <img src="../../icons/chevron-down.svg" />
+              Codetutorial einblenden
+            </div>
+          </label>
+          <div class="detail">
+            <div id="mobile-instructions">
+
+            </div>
+          </div>
+        </div>
+
+        <div class="instructions" id="instruction-container">
+          <p>
+            Wie immer erstellen wir ein Objekt, das alle Funktionen bündeln soll. In diesem Fall nennen wir es Vigenere.
+          </p>
+          <p>
+            Wir benötigen für dieses Verschlüsselungsverfahren eine Funktion, die überprüft, ob der übergebene Schlüssel ein legaler Schlüssel ist, eine Funktion,
+            die verschlüsselt, und eine, die entschlüsselt.
+          </p>
+          <p>
+            Schauen wir uns zuerst die erste Funktion näher an. Sie erhält als Parameter den Schlüssel und das Alphabet.
+          </p>
+          <p>
+            Die Funktion soll einen übergebenen Schlüssel korrigieren, und den neuen Schlüssel zurückgeben.
+            Diesen neuen Schlüssel halten wir in der Varaiable newKey fest, die zu Anfang der Funktion noch leer ist, und am Ende
+            zurückgegeben werden soll.
+          </p>
+          <p>
+            Für jeden Buchstaben des Schlüssels wird überprüft, ob er Teil des Alphabets ist. Ist er dies, wird er newKey angehängt,
+            ansonsten wird er einfach ignoriert. So kann der Schlüssel korrigiert werden.
+          </p>
+          <p>
+            Weiter zur Funktion zum Verschlüsseln. Sie erhält die zu verschlüsselnde Nachricht, den Schlüssel, ein Alphabet, das als Standard das
+            lateinische Alphabet ist, und einen Wahrheitswert, was mit Klartextbuchstaben passieren soll, die nicht im Alphabet
+            aufgeführt werden.
+          </p>
+          <p>
+            Zunächst wird der Schlüssel, wenn nötig, korrigiert.
+          </p>
+          <p>
+            Dann erstellen wir eine Variable, die den Geheimtext speichern soll. Am Ende der Funktion wird sie entsprechend ausgegeben.
+          </p>
+          <p>
+            Wir iterieren nun über jeden Buchstaben des Klartexts.
+          </p>
+          <p>
+            Ist der Buchstabe ein Leerzeichen, so hängen wir dieses an die Variable output an, und gehen zum nächsten Buchstaben über.
+          </p>
+          <p>
+            Andernfalls schauen wir, an welcher Stelle im Alphabet der betrachtete Buchstabe vorkommt. Kommt er gar nicht vor, fügen wir
+            ihn abhängig vom Parameter skip als Klartext an, oder überspringen ihn, und gehen zum nächsten Buchstaben.
+          </p>
+          <p>
+            Ist der betrachtete Buchstabe aber kein Leerzeichen, und im Alphabet vorhanden, so berechnen wir den aktuellen Schlüssel. Dieser
+            ist natürlich abhängig davon, welcher Schlüsselbuchstabe sozusagen über dem betrachteten Buchstaben steht.
+          </p>
+          <p>
+            Um festzustellen, welcher Schlüsselbuchstabe momentan der richtige ist, wird in einer Variablen der Index des aktuellen Schlüsselbuchstabens festgehalten. Diese
+            wird vor der Schleife auf 0 initialisiert.
+          </p>
+          <p>
+            Und nach jedem erfolgreich verschlüsselten Buchstaben um 1 erhöht.
+          </p>
+          <p>
+            Ansonsten wird ähnlich wie bei Caesar die neue Stelle im Alphabet berechnet.
+          </p>
+          <p>
+            Und abschließend dem output angefügt.
+          </p>
+          <p>
+            Weiter zur Methode zum Entschlüsseln. Sie erhält die gleichen Parameter wie die Methode zum Verschlüsseln
+          </p>
+          <p>
+            Und macht auch im Grunde auch das gleiche. Sie iteriert über jeden Buchstaben, fängt Sonderfälle wie Leerzeichen ab, merkt sich den aktuellen Schlüsselbuchstaben,
+            und verschlüsselt die Buchstaben nacheinander.
+          </p>
+          <p>
+            Der Unterschied bei dieser Methode ist die Richtung des Verschiebens, und wie die Stelle des neuen Buchstabens innerhalb des Alphabets gehalten wird.
+          </p>
+          <p>
+            Das wars! 🎉
+          </p>
+        </div>
+        <div class="code-wrapper">
+          <div class="code" id="code-container">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="further-reading">
+      <div class="heading">
+        <img src="../../icons/book.svg" />
+        <h2>Weiterlesen</h2>
+      </div>
+      <div class="content">
+        <a href="https://de.wikipedia.org/wiki/Vigen%C3%A8re-Chiffre">
+          Wikipedia über die Vigenère-Verschlüsselung
+        </a>
+
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="first-column">
+      <a href="../../index.html" class="wpaad-footer">
+        wpaad
+      </a>
+      <p class="authors">
+        Erstellt von <a href="https://www.github.com/oswaldtheprogrammer">@OswaldTheProgrammer</a> und <a href="https://www.github.com/codebyfinn">@CodeByFinn</a>.
+      </p>
+    </div>
+
+    <div class="licenses-and-policy">
+      <a class="policy" href="privacy-policy.html">Datenschutzerklärung</a>
+      <p>Schriftarten von <a href="https://fonts.google.com">Google Fonts</a> lizensiert unter der <a href="http://www.apache.org/licenses/LICENSE-2.0">Apache License, Version 2.0</a></p>
+      <p>Icons von <a href="https://feathericons.com/">Feathericons</a> lizensiert unter der <a href="https://github.com/feathericons/feather/blob/master/LICENSE">MIT License</a></p>
+    </div>
+  </footer>
+</body>
+
+</html>
