@@ -1117,6 +1117,10 @@ footer a:hover {
   }
 
 
+  #test .key-settings {
+    flex-direction: column;
+  }
+  
   #test .direction-select {
     flex-direction: column;
     gap: 30px;
