@@ -1,102 +1,263 @@
 <!DOCTYPE html>
 <html lang="de">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 
   <title>wpaad</title>
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="landing.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital@0;1&family=Roboto+Slab:wght@400;700&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+
+  <script src="share-wpaad.js" defer></script>
 </head>
 
 <body>
-  <section class="landing">
-    <div class=background-circle></div>
-    <div class=background-circle></div>
-    <div class=background-circle></div>
-
-    <div class="content">
-      <div class="title">
-        <h2 class="name">wpaad</h2>
-        <h1>Verschlüsseln wird jetzt einfacher denn je</h1>
+  <section class="hero">
+    <div class="heading">
+      <div class="animation-wrapper">
+        <div class="top">
+          <div class="left">
+            <img src="icons/edit-2.svg" />
+            Eingabe
+          </div>
+          <div class="right"></div>
+        </div>
+        <div class="wpaad-animation">
+          <div class="first-letter">
+            <span>h</span>
+            <span>i</span>
+            <span>j</span>
+            <span>k</span>
+            <span>l</span>
+            <span>m</span>
+            <span>n</span>
+            <span>o</span>
+            <span>p</span>
+            <span>q</span>
+            <span>r</span>
+            <span>s</span>
+            <span>t</span>
+            <span>u</span>
+            <span>v</span>
+            <span>w</span>
+          </div>
+          <div class="second-letter">
+            <span>a</span>
+            <span>b</span>
+            <span>c</span>
+            <span>d</span>
+            <span>e</span>
+            <span>f</span>
+            <span>g</span>
+            <span>h</span>
+            <span>i</span>
+            <span>j</span>
+            <span>k</span>
+            <span>l</span>
+            <span>m</span>
+            <span>n</span>
+            <span>o</span>
+            <span>p</span>
+          </div>
+          <div class="third-letter">
+            <span>l</span>
+            <span>m</span>
+            <span>n</span>
+            <span>o</span>
+            <span>p</span>
+            <span>q</span>
+            <span>r</span>
+            <span>s</span>
+            <span>t</span>
+            <span>u</span>
+            <span>v</span>
+            <span>w</span>
+            <span>x</span>
+            <span>y</span>
+            <span>z</span>
+            <span>a</span>
+          </div>
+          <div class="fourth-letter">
+            <span>l</span>
+            <span>m</span>
+            <span>n</span>
+            <span>o</span>
+            <span>p</span>
+            <span>q</span>
+            <span>r</span>
+            <span>s</span>
+            <span>t</span>
+            <span>u</span>
+            <span>v</span>
+            <span>w</span>
+            <span>x</span>
+            <span>y</span>
+            <span>z</span>
+            <span>a</span>
+          </div>
+          <div class="fifth-letter">
+            <span>o</span>
+            <span>p</span>
+            <span>q</span>
+            <span>r</span>
+            <span>s</span>
+            <span>t</span>
+            <span>u</span>
+            <span>v</span>
+            <span>w</span>
+            <span>x</span>
+            <span>y</span>
+            <span>z</span>
+            <span>a</span>
+            <span>b</span>
+            <span>c</span>
+            <span>d</span>
+          </div>
+        </div>
       </div>
+      <span class="subtitle">kryptografie leicht gemacht</span>
+    </div>
 
-      <div class="link-wrapper">
-        <a href="select.html">Jetzt verschlüsseln</a>
-        <a href="#first-section">&darr;</a>
-      </div>
+    <div class="links">
+      <a href="#gallery">Jetzt verschlüsseln</a>
+      <a href="#about">Mehr erfahren</a>
     </div>
   </section>
 
-
-  <section class="info">
-    <h1 id="first-section">Was ist <em>wpaad</em>?</h1>
-    <p class="main-width">
-      <em>wpaad</em> ist die womöglich beste Website über Kryptologie. <br />
-      Verschlüssele Nachrichten schnell und komfortabel. Ein einfaches und intuitives Design sorgt dabei für ein perfektes Nutzererlebnis. <br />
-      Doch hier hört es noch nicht auf! Lerne zusätzlich die Verschlüsselungsverfahren durch leicht verständliche, aber umfangreiche Tutorials kennen. <br />
+  <section class="share-badge">
+    <h4>wpaad v2.0 🎉</h4>
+    <p>
+      Wir haben gerade auf die neue Version geupdatet! Neues Design, mehr Verschlüsselungsverfahren und vieles mehr.
+      Es würde uns freuen, wenn du die Website mit deinen Freunden teilst.
     </p>
-    <p class="more-info main-width">
-      Keine Werbung. <br />
-      Keine Anmeldung. <br />
-      Kein Blabla.
-    </p>
+    <button class="share-button" onclick="share(this)"><img src="icons/share.svg" /> Teilen</button>
   </section>
 
-
-  <section class="services">
-    <h1>Was wir bieten</h1>
-
-    <div class="card main-width">
-      <div class="content">
-        <h3>Verschlüsselung</h3>
-        <p>Verschlüssele Nachrichten mit bekannten Verschlüsselungsverfahren wie Caesar oder Vigenere.</p>
-      </div>
-
-      <div class="highlighted">
-        <a href="select.html">Starten</a>
-      </div>
-    </div>
-
-    <div class="card main-width">
-      <div class="content">
+  <section class="about">
+    <h1 id="about">Was ist dieses <em>wpaad</em>?</h1>
+    <div class="cards">
+      <div class="card">
         <h3>Lernen</h3>
-        <p>Lerne die Verschlüsselungsverfahren im Detail kennen.</p>
+        <p>
+          Lerne die Grundlagen der Verschlüsselung mit umfangreichen Tutorials zu den Verfahren selbst,
+          aber auch, wie wir sie programmiert haben.
+        </p>
       </div>
-
-      <div class="highlighted">
-        <a>Kommt bald</a>
+      <div class="card">
+        <h3>Ausprobieren</h3>
+        <p>
+          Verschlüssele bzw. codiere selbst Nachrichten mit unseren Verfahren und teile sie mit Freunden.
+          Du kannst außerdem selbst versuchen, die vorgestellten Verschlüsselungsverfahren zu knacken.
+        </p>
       </div>
-    </div>
-
-    <div class="card main-width">
-      <div class="content">
-        <h3>Kryptoanalyse</h3>
-        <p>Versuche die Verschlüsselungen interaktiv zu knacken.</p>
-      </div>
-
-      <div class="highlighted">
-        <a>Kommt bald</a>
+      <div class="card">
+        <h3>Entdecken</h3>
+        <p>
+          Stöbere einfach durch unsere Galerie und schau, was dich erwartet. Worauf wartest du noch?
+        </p>
       </div>
     </div>
   </section>
 
-  <section class="banner">
-    <h1>Worauf wartest du noch?</h1>
-    <a href="select.html">Loslegen</a>
+  <section>
+    <h1 id="gallery">Galerie</h1>
+    <p class="subtitle">
+      Hier findest du alle unsere Codierungs- und Verschlüsselungsverfahren. Probier' eins aus und erfahre gleichzeitig mehr
+      über Geschichte, Funktion und Angriffsmöglichkeiten.
+    </p>
+
+    <article>
+      <h2>Codierungen</h2>
+
+      <div class="category-wrapper">
+        <div class="top">
+          <div class="right"></div>
+        </div>
+
+        <ul>
+          <li>
+            <a href="explore/morse/morse.html">
+              <h3 id="morse">Morse</h3>
+              <p>
+                Ursprünglich für Telegraphen gedacht, ist er heute wahrscheinlich der bekannteste Code.
+              </p>
+            </a>
+          </li>
+          <li>
+            <a href="explore/ascii/ascii.html">
+              <h3 id="ascii">Ascii</h3>
+              <p>
+                Der American Standard Code for Information Interchange.
+              </p>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </article>
+
+    <article>
+      <h2>Monoalphabetische Substitutionen</h2>
+
+      <div class="category-wrapper">
+        <div class="top">
+          <div class="right"></div>
+        </div>
+
+        <ul>
+          <li>
+            <a href="explore/caesar/caesar.html">
+              <h3 id="caesar">Caesar</h3>
+              <p>
+                Dieses Verschlüsselungsverfahren soll schon Caesar verwendet haben.
+              </p>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </article>
+
+    <article>
+      <h2>Polyalphabetische Substitutionen</h2>
+
+      <div class="category-wrapper">
+        <div class="top">
+          <div class="right"></div>
+        </div>
+
+        <ul>
+          <li>
+            <a href="explore/vigenere/vigenere.html">
+              <h3 id="vigenere">Vigenère</h3>
+              <p>
+                Ähnlich wie die Caesar-Verschlüsselung, nur mit vielen Alphabeten.
+              </p>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </article>
   </section>
 
   <footer>
-    <p>
-      Erstellt von <a href="https://www.github.com/oswaldtheprogrammer">@OswaldTheProgrammer</a> und <a href="https://www.github.com/codebyfinn">@CodeByFinn</a>.
-    </p>
+    <div class="first-column">
+      <p class="wpaad-footer">
+        wpaad
+      </p>
+      <p class="authors">
+        Erstellt von <a href="https://www.github.com/oswaldtheprogrammer">@OswaldTheProgrammer</a> und <a href="https://www.github.com/codebyfinn">@CodeByFinn</a>.
+      </p>
+    </div>
+
     <div class="licenses-and-policy">
       <a class="policy" href="privacy-policy.html">Datenschutzerklärung</a>
       <p>Schriftarten von <a href="https://fonts.google.com">Google Fonts</a> lizensiert unter der <a href="http://www.apache.org/licenses/LICENSE-2.0">Apache License, Version 2.0</a></p>
+      <p>Icons von <a href="https://feathericons.com/">Feathericons</a> lizensiert unter der <a href="https://github.com/feathericons/feather/blob/master/LICENSE">MIT License</a></p>
     </div>
   </footer>
 
 </body>
+
 </html>

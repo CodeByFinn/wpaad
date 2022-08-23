@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+
+  <title>ASCII</title>
+  <link rel="stylesheet" href="../explore-styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital@0;1&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+
+  <script src="ascii.js" defer></script>
+  <script src="../scripts/scrollbar.js" defer></script>
+  <script src="../scripts/code-animation.js" defer></script>
+  <script src="../scripts/copy.js" defer></script>
+</head>
+
+<body>
+  <main>
+    <div class="nav-container">
+      <nav>
+        <a href="../../index.html" id="home">
+          <img src="../../icons/home.svg" />
+        </a>
+        <a href="../../index.html#gallery" id="gallery">
+          <img src="../../icons/grid.svg" />
+        </a>
+        <div class="divider"></div>
+        <a href="#explanation">
+          <img src="../../icons/align-left.svg" />
+        </a>
+        <div class="connect"></div>
+        <a href="#test">
+          <img src="../../icons/cpu.svg" />
+        </a>
+        <div class="connect"></div>
+        <a href="#code">
+          <img src="../../icons/terminal.svg" />
+        </a>
+        <div class="connect"></div>
+        <a href="#further-reading">
+          <img src="../../icons/book.svg" />
+        </a>
+
+        <select id="choose-paragraph" onchange="scrollParagraph()">
+          <option value="0">Erklärung</option>
+          <option value="1">Testen</option>
+          <option value="2">Weiterlesen</option>
+        </select>
+      </nav>
+    </div>
+
+    <h1 id="ascii">ASCII</h1>
+
+    <section id="explanation">
+      <div class="heading">
+          <img src="../../icons/align-left.svg" />
+          <h2>Erklärung</h2>
+      </div>
+
+      <div class="content">
+        <p>
+          ASCII steht für American Standard Code for Information Interchange. Im 20. Jahrhundert entstanden soll dieser Code die 128 häufigsten Zeichen der englischen Sprache
+          in einer 7-Bit-Form darstellen. Ähnlich wie der Morsecode wurde der ASCII auch zunächst für Telegraphen verwendet. Doch auch in den ersten Computern fand der Code Verwendung.
+        </p>
+        <p>
+          Neben den Buchstaben von a bis z in Groß- und Kleinbuchstaben, sind auch einige Sonderzeichen im ASCII als 7-Bit-Form definiert.
+          Nicht dabei sind allerdings Sonderzeichen, wie ä, ö, ü oder ß, wie wir sie im Deutschen haben.
+        </p>
+        <p>
+          Für heutige Einsatzbereiche reichen 128 Zeichen nicht mehr aus, vor allem nicht, wenn man mehrere Sprachen mit dem Code abdecken möchte. Der heutzutage weitestgehend eingesetzte Unicode baut
+          auf dem ASCII auf, und erweitert ihn auf heute circa 145.000 Zeichen.
+        </p>
+      </div>
+    </section>
+
+    <section id="test">
+      <div class="heading">
+        <img src="../../icons/cpu.svg" />
+        <h2>Testen</h2>
+      </div>
+
+      <div class="content">
+        <div class="input-area">
+          <div class="top">
+            <div class="left">
+              <img src="../../icons/edit-2.svg" />
+              Eingabe
+            </div>
+            <div class="right"></div>
+          </div>
+          <textarea class="input" id="test-input" name="input" rows="8" placeholder="Gib hier einen Text ein" oninput="testInputChanged()"></textarea>
+        </div>
+
+        <div class="direction-select">
+          <input type="radio" name="direction" id="encrypt" value="encrypt" onclick="testDirectionChanged()" checked>
+          <label for="encrypt" id="encrypt-label">
+            <img src="../../icons/lock.svg" />
+            Codieren
+          </label>
+          <input type="radio" name="direction" id="decrypt" value="decrypt" onclick="testDirectionChanged()">
+          <label for="decrypt" id="decrypt-label">
+            <img src="../../icons/unlock.svg" />
+            Decodieren
+          </label>
+        </div>
+
+        <div class="input-area">
+          <div class="top">
+            <div class="left">
+              <img src="../../icons/lock.svg" id="direction-icon-lock" />
+              <img src="../../icons/unlock.svg" id="direction-icon-unlock" />
+              Ausgabe
+            </div>
+            <div class="right"></div>
+          </div>
+          <textarea class="output" id="test-output" name="input" rows="8" placeholder="Hier steht dann der verschlüsselte Text" readonly></textarea>
+        </div>
+      </div>
+
+      <button id="copy-button" onclick="copy(this)" class="copy-button">Kopieren</button>
+    </section>
+
+    <section id="further-reading">
+      <div class="heading">
+        <img src="../../icons/book.svg" />
+        <h2>Weiterlesen</h2>
+      </div>
+      <div class="content">
+        <a href="https://de.wikipedia.org/wiki/American_Standard_Code_for_Information_Interchange">
+          Wikipedia über ASCII
+        </a>
+        <a href="https://de.wikipedia.org/wiki/Unicode">
+          Wikipedia über Unicode
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="first-column">
+      <a href="../../index.html" class="wpaad-footer">
+        wpaad
+      </a>
+      <p class="authors">
+        Erstellt von <a href="https://www.github.com/oswaldtheprogrammer">@OswaldTheProgrammer</a> und <a href="https://www.github.com/codebyfinn">@CodeByFinn</a>.
+      </p>
+    </div>
+
+    <div class="licenses-and-policy">
+      <a class="policy" href="privacy-policy.html">Datenschutzerklärung</a>
+      <p>Schriftarten von <a href="https://fonts.google.com">Google Fonts</a> lizensiert unter der <a href="http://www.apache.org/licenses/LICENSE-2.0">Apache License, Version 2.0</a></p>
+      <p>Icons von <a href="https://feathericons.com/">Feathericons</a> lizensiert unter der <a href="https://github.com/feathericons/feather/blob/master/LICENSE">MIT License</a></p>
+    </div>
+  </footer>
+</body>
+
+</html>

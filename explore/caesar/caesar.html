@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+
+  <title>Caesar</title>
+  <link rel="stylesheet" href="../explore-styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital@0;1&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+
+  <script src="../scripts/frequency-analysis.js" defer></script>
+  <script src="caesar.js" defer></script>
+  <script src="../scripts/scrollbar.js" defer></script>
+  <script src="../scripts/code-animation.js" defer></script>
+  <script src="../scripts/copy.js" defer></script>
+</head>
+
+<body>
+
+  <main>
+    <div class="nav-container">
+        <nav>
+          <a href="../../index.html" id="home">
+            <img src="../../icons/home.svg" />
+          </a>
+          <a href="../../index.html#gallery" id="gallery">
+            <img src="../../icons/grid.svg" />
+          </a>
+          <div class="divider"></div>
+          <a href="#explanation">
+            <img src="../../icons/align-left.svg" />
+          </a>
+          <div class="connect"></div>
+          <a href="#test">
+            <img src="../../icons/cpu.svg" />
+          </a>
+          <div class="connect"></div>
+          <a href="#analysis">
+            <img src="../../icons/tool.svg" />
+          </a>
+          <div class="connect"></div>
+          <a href="#code">
+            <img src="../../icons/terminal.svg" />
+          </a>
+          <div class="connect"></div>
+          <a href="#further-reading">
+            <img src="../../icons/book.svg" />
+          </a>
+
+          <select id="choose-paragraph" onchange="scrollParagraph()">
+            <option value="0">Erklärung</option>
+            <option value="1">Testen</option>
+            <option value="2">Kryptoanalyse</option>
+            <option value="3">Code</option>
+            <option value="4">Weiterlesen</option>
+          </select>
+        </nav>
+      </div>
+
+    <h1 id="caesar">Caesar-Verschlüsselung</h1>
+
+    <section id="explanation">
+      <div class="heading">
+          <img src="../../icons/align-left.svg" />
+          <h2>Erklärung</h2>
+      </div>
+
+      <div class="content">
+        <p>
+          Die Caesar-Verschlüsselung ist ein altes Verschlüsselungsverfahren, das wohl schon Caesar für die Verschlüsselung nutzte.
+          Es handelt sich bei diesem Verfahren um ein monoalphabetisches Substitutionsverfahren.
+          Das bedeutet, dass jeder Buchstabe im Klartext durch ein einzelnes Geheimtextalphabet zu einem anderen Buchstaben in der Verschlüsselung wird.
+        </p>
+        <p>
+          Als Vorbereitung für die Ver- und Entschlüsselung muss zunächst ein Schlüssel zwischen 1 und 25 (oder der Länge des verwendeten Alphabets - 1)
+          festgelegt werden.
+          Wir nehmen hier den Schlüssel 3, den auch Caesar verwendet haben soll.
+        </p>
+        <p>
+          Nun wird das Klartextalphabet aufgeschrieben.
+        </p>
+        <p class="example">
+          abcdefghijklmnopqrstuvwxyz
+        </p>
+        <p>
+          Unter das Klartextalphabet schreibt man anschließend das Geheimtextalphabet.
+          Dieses entspricht dem Klartextalphabet, jedoch wird es um den Schlüssel nach rechts verschoben.
+          Da unser Schlüssel 3 ist, wird das Alphabet um 3 Buchstaben verschoben.
+          Statt mit dem a beginnt das Geheimtextalphabet also mit dem d.
+        </p>
+        <p class="example">
+          abcdefghijklmnopqrstuvwxyz
+          <br />
+          defghijklmnopqrstuvwxyzabc
+        </p>
+        <p>
+          Wie im Beispiel zu erkennen, wird nach dem z wieder beim a begonnen, sodass Klartext- und Geheimtextalphabet die gleiche Länge besitzen.
+          Statt einer Zahl als Schlüssel, kann bei dieser Verschlüsselung auch der Buchstabe angegeben werden, mit dem das Geheimtextalphabet beginnt.
+          In unserem Beispiel wäre der Schlüssel dann d.
+        </p>
+        <p>
+          Verschlüsselt man eine Nachricht, sucht man nacheinander die Buchstaben des Klartextes im Klartextalphabet,
+          und liest den darunter stehenden Buchtaben im Geheimtextalphabet ab.
+        </p>
+        <p class="example">
+          caesar <br />
+          &darr;&darr;&darr;&darr;&darr;&darr; <br />
+          fdhvdu
+        </p>
+        <p>
+          Zum Entschlüsseln wird das Ganze umgekehrt durchgeführt.
+          Nacheinander wird jeder Geheimtext-Buhstabe gesucht und darüber der Klartextbuchstabe abgelesen und notiert.
+        </p>
+        <p class="example">
+          fdhvdu <br />
+          &darr;&darr;&darr;&darr;&darr;&darr; <br />
+          caesar
+        </p>
+        <p>
+          Zur Vereinfachung werden meist nur Kleinbuchstaben verwendet. Hier hast du allerdings auch die Möglichkeit, dein eigenes Alphabet zu definieren.
+        </p>
+      </div>
+    </section>
+
+    <section id="test">
+      <div class="heading">
+        <img src="../../icons/cpu.svg" />
+        <h2>Testen</h2>
+      </div>
+
+      <div class="content">
+        <div class="accordion">
+          <input type="checkbox" name="alphabet" id="alphabet">
+          <label for="alphabet">
+            <div class="closed">
+              <img src="../../icons/chevron-right.svg" />
+              Alphabet
+            </div>
+            <div class="opened">
+              <img src="../../icons/chevron-down.svg" />
+              Alphabet
+            </div>
+          </label>
+          <div class="detail">
+            <p>
+              Wenn du dich nicht nur auf Kleinbuchstaben begrenzen möchtest, kannst du hier ein eigenes
+              Klartextalphabet eingeben.
+            </p>
+            <input type="text" name="alphabet-value" id="alphabet-value" value="abcdefghijklmnopqrstuvwxyz" placeholder="Gib hier das Klartextalphabet ein" onchange="testAlphabetChanged()"/>
+          </div>
+        </div>
+
+        <div class="accordion bigger-margin">
+          <input type="checkbox" name="alphabet" id="test-key">
+          <label for="test-key">
+            <div class="closed">
+              <img src="../../icons/chevron-right.svg" />
+              Schlüssel
+            </div>
+            <div class="opened">
+              <img src="../../icons/chevron-down.svg" />
+              Schlüssel
+            </div>
+          </label>
+          <div class="detail">
+            <p>
+              Definiere den Schlüssel als Anzahl der Verschiebungen, abhängig vom oben gewählten Alphabet.
+            </p>
+            <div class="key-settings">
+              <div class="key-label">
+                <span>Schlüssel:</span>
+                <div class="select-key">
+                  <button onclick="decreaseKey()"><img src="../../icons/minus.svg" /></button>
+                  <input type="text" value="3" id="key-label" onchange="testKeyChanged()" />
+                  <button onclick="increaseKey()"><img src="../../icons/plus.svg" /></button>
+                </div>
+              </div>
+
+              <p>
+                Mit deinem gewählten Schlüssel wird ein <em id="plain-text-test">a</em> im Klartext zu einem <em id="cipher-text-test">d</em> im Geheimtext.
+              </p>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="input-area">
+          <div class="top">
+            <div class="left">
+              <img src="../../icons/edit-2.svg" />
+              Eingabe
+            </div>
+            <div class="right"></div>
+          </div>
+          <textarea class="input" id="test-input" name="input" rows="8" placeholder="Gib hier einen Text ein" oninput="testInputChanged()"></textarea>
+        </div>
+
+        <div class="direction-select">
+          <input type="radio" name="direction" id="encrypt" value="encrypt" onclick="testDirectionChanged()" checked>
+          <label for="encrypt" id="encrypt-label">
+            <img src="../../icons/lock.svg" />
+            Verschlüsseln
+          </label>
+          <input type="radio" name="direction" id="decrypt" value="decrypt" onclick="testDirectionChanged()">
+          <label for="decrypt" id="decrypt-label">
+            <img src="../../icons/unlock.svg" />
+            Entschlüsseln
+          </label>
+        </div>
+
+        <div class="input-area">
+          <div class="top">
+            <div class="left">
+              <img src="../../icons/lock.svg" id="direction-icon-lock" />
+              <img src="../../icons/unlock.svg" id="direction-icon-unlock" />
+              Ausgabe
+            </div>
+            <div class="right"></div>
+          </div>
+          <textarea class="output" id="test-output" name="input" rows="8" placeholder="Hier steht dann der verschlüsselte Text" readonly></textarea>
+        </div>
+
+        <button id="copy-button" onclick="copy(this)" class="copy-button">Kopieren</button>
+      </div>
+    </section>
+
+    <section id="analysis">
+        <div class="heading">
+          <img src="../../icons/tool.svg" />
+          <h2>Kryptoanalyse</h2>
+        </div>
+
+        <div class="content">
+          <div class="accordion top-level">
+            <input type="checkbox" name="brute-force" id="brute-force">
+            <label for="brute-force">
+              <div class="closed">
+                <img src="../../icons/chevron-right.svg" />
+                Brute Force
+              </div>
+              <div class="opened">
+                <img src="../../icons/chevron-down.svg" />
+                Brute Force
+              </div>
+            </label>
+            <div class="detail">
+              <p>
+                Es ist nicht schwer, die Caesar-Verschlüsselung zu knacken, denn die Anzahl
+                der möglichen Schlüssel wird direkt von der Länge des verwendeten Alphabets beschränkt.
+                Geht man vom lateinischen Alphabet aus, so gibt es nur 25 mögliche Schlüssel,
+                die man auch einfach durchprobieren kann, bis der entschlüsselte Text logisch klingt.
+              </p>
+            </div>
+          </div>
+
+          <div class="accordion top-level">
+            <input type="checkbox" name="frequency-analysis" id="frequency-analysis">
+            <label for="frequency-analysis">
+              <div class="closed">
+                <img src="../../icons/chevron-right.svg" />
+                Häufigkeitsanalyse
+              </div>
+              <div class="opened">
+                <img src="../../icons/chevron-down.svg" />
+                Häufigkeitsanalyse
+              </div>
+            </label>
+            <div class="detail">
+              <p>
+                Auch mit einer Häufigkeitsanalyse kann die Caesar-Verschlüsselung,
+                wie jede monoalphabetische Substitution geknackt werden.
+                Da sich die Häufigkeit eines Buchstabens nicht ändert, kann auf den Schlüssel zurückgeschlossen werden.
+                Im Deutschen und Englischen beispielsweise ist das e der häufigste Buchstabe. Ist im verschlüsselten das h
+                am häufigsten, so ist der Schlüssel vermutlich 3 (e -> h).
+                Statt sich nur den häufigsten Buchstaben anzuschauen, kann man auch alle Buchstaben betrachten und, im Fall
+                der Caesar-Verschlüsselung, einen Verschub ermitteln.
+              </p>
+              <div class="input-area">
+                <div class="top">
+                  <div class="left">
+                    <img src="../../icons/lock.svg" />
+                    Verschlüsselter Text
+                  </div>
+                  <div class="right"></div>
+                </div>
+                <textarea class="input" id="analysis-input" name="input" rows="8" placeholder="Gib hier einen Text ein" oninput="frequencyChanged(this.value)"></textarea>
+              </div>
+
+              <div class="frequency-statistic">
+                <div class="statistic-wrapper" id="statistic-wrapper">
+                  <span class="info">Gibst du einen Text ein, wird hier die Statistik automatisch die
+                  Häufigkeiten anzeigen</span>
+                </div>
+                <!-- Maybe a future feature
+                <div class="key-info">
+                  <div class="recommended-key">
+                    Vorgeschlagener Schlüssel: <em>15</em>
+                  </div>
+                </div>
+                -->
+              </div>
+            </div>
+          </div>
+        </div>
+    </section>
+
+    <section id="code">
+      <div class="heading">
+        <img src="../../icons/terminal.svg" />
+        <h2>Code</h2>
+      </div>
+
+      <div class="content">
+        <div class="accordion show-code top-level mobile-instructions-container">
+          <input type="checkbox" name="code-instructions" id="code-instructions">
+          <label for="code-instructions">
+            <div class="closed">
+              <img src="../../icons/chevron-right.svg" />
+              Codetutorial einblenden
+            </div>
+            <div class="opened">
+              <img src="../../icons/chevron-down.svg" />
+              Codetutorial einblenden
+            </div>
+          </label>
+          <div class="detail">
+            <div id="mobile-instructions">
+
+            </div>
+          </div>
+        </div>
+
+        <div class="instructions" id="instruction-container">
+          <p>
+            Als Basis für den Code erstellen wir ein Objekt mit dem Namen Caesar.
+            Damit können wir alle wichtigen Funktionen, die für die Caesar-Verschlüsselung wichtig sind, bündeln.
+          </p>
+          <p>
+            Fügen wir nun die benötigten Funktionen hinzu. Eine zum Verschlüsseln, eine zum Entschlüsseln und eine,
+            die später wichtig sein wird, um zu überprüfen, ob der Schlüssel richtig gesetzt wurde. (Nur für den Fall,
+            dass jemand zum Beispiel einen Satz als Schlüssel wählen möchte...)
+          </p>
+          <p>
+            Der Funktion zum Verschlüsseln übergeben wir den Klartext, den Schlüssel,
+            das verwendete Alphabet, das standardmäßig das lateinische Alphabet ist, und einen Wahrheitswert,
+            der angibt, was mit Buchstaben passiert, die nicht im Alphabet sind.
+          </p>
+          <p>
+            Die gleichen Parameter erhält auch die Funktion zum Entschlüsseln.
+          </p>
+          <p>
+            Der Funktion checkKey übergeben wir den Schlüssel und das Alphabet. Schauen wir uns einmal an, was genau
+            diese Funktion macht.
+          </p>
+          <p>
+            Zuerst stellt sie sicher, dass eine Ganzzahl als Schlüssel übergeben wurde.
+          </p>
+          <p>
+            Dann begrenzt sie den Schlüssel auf die Länge des Alphabets und gibt den angepassten Schlüssel zurück.
+          </p>
+          <p>
+            Diese Funktion ist perfekt, um zu überprüfen, ob den Funktionen zum Ver- und Entschlüsseln angemessene Schlüssel
+            übergeben wurden. Deswegen fügen wir sie zu Beginn der einen Funktion hinzu.
+          </p>
+          <p>
+            Und natürlich auch zu Beginn der zweiten.
+          </p>
+          <p>
+            Wenden wir uns nun der Funktion zum Verschlüsseln zu. Zuerst erstellen wir eine Variable für den Geheimtext,
+            die wir output nennen. Genau dieser Geheimtext wird dann am Ende der Funktion wieder zurückgegeben.
+          </p>
+          <p>
+            Um jeden Buchstaben zyklisch zu verschieben, werden wir mit einer Zählschleife durch jeden Buchstaben des Klartextes
+            &ldquo;zählen&rdquo;.
+          </p>
+          <p>
+            Für jeden Buchstaben des Klartextes sucht das Programm die Stelle im Alphabet, an der der Buchstabe auftaucht,
+            und addiert den Schlüssel. Dieser wird wieder auf die Länge des
+            Alphabets begrenzt, man fängt also wieder von vorne an, wenn man am Ende angekommen ist.
+          </p>
+          <p>
+            Zum Abschluss wird noch dem Geheimtext der Buchstabe hinzugefügt, der an der neuen Stelle im Alphabet steht.
+          </p>
+          <p>
+            Jetzt müssen wir noch den Fall abfangen, dass der Buchstabe gar nicht im Alphabet ist. In diesem Fall überspringen wir ihn, oder
+            fügen ihn unverschlüsselt an den Geheimtext an, je nachdem was beim Parameter skip angegeben wurde.
+          </p>
+          <p>
+            In der Funktion zum Entschlüsseln passiert im Grunde das gleiche.
+          </p>
+          <p>
+            Anders ist hier jedoch, dass der Schlüssel von der Stelle im Alphabet subtrahiert wird.
+          </p>
+          <p>
+            Somit wird die Stelle auch anders innerhalb des Alphabets gehalten.
+          </p>
+          <p>
+            Das wars! 🎉
+          </p>
+        </div>
+        <div class="code-wrapper">
+          <div class="code" id="code-container">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="further-reading">
+      <div class="heading">
+        <img src="../../icons/book.svg" />
+        <h2>Weiterlesen</h2>
+      </div>
+      <div class="content">
+        <a href="https://de.wikipedia.org/wiki/Caesar-Verschl%C3%BCsselung">
+          Wikipedia über die Caesar-Verschlüsselung
+        </a>
+        <a href="https://de.wikipedia.org/wiki/Monoalphabetische_Substitution">
+          Wikipedia über monoalphabetische Substitution
+        </a>
+        <a href="https://de.wikipedia.org/wiki/H%C3%A4ufigkeitsanalyse">
+          Wikipedia über die Häufigkeitsanalyse
+        </a>
+
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="first-column">
+      <a href="../../index.html" class="wpaad-footer">
+        wpaad
+      </a>
+      <p class="authors">
+        Erstellt von <a href="https://www.github.com/oswaldtheprogrammer">@OswaldTheProgrammer</a> und <a href="https://www.github.com/codebyfinn">@CodeByFinn</a>.
+      </p>
+    </div>
+
+    <div class="licenses-and-policy">
+      <a class="policy" href="privacy-policy.html">Datenschutzerklärung</a>
+      <p>Schriftarten von <a href="https://fonts.google.com">Google Fonts</a> lizensiert unter der <a href="http://www.apache.org/licenses/LICENSE-2.0">Apache License, Version 2.0</a></p>
+      <p>Icons von <a href="https://feathericons.com/">Feathericons</a> lizensiert unter der <a href="https://github.com/feathericons/feather/blob/master/LICENSE">MIT License</a></p>
+    </div>
+  </footer>
+</body>
+
+</html>
