@@ -298,7 +298,7 @@ function resetCodes() {
   for (let i = 0; i < originalCodes.length; i++) {
     let code = originalCodes[i]
     let newCode = [];
-    for (elem of code) {
+    for (let elem of code) {
       newCode.push(elem);
     }
     codes.push(newCode);
