@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+
+  <title>Morsecode</title>
+  <link rel="stylesheet" href="../explore-styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital@0;1&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+
+  <script src="morse.js" defer></script>
+  <script src="../scripts/scrollbar.js" defer></script>
+  <script src="../scripts/code-animation.js" defer></script>
+  <script src="../scripts/copy.js" defer></script>
+</head>
+
+<body>
+  <main>
+    <div class="nav-container">
+      <nav>
+        <a href="../../index.html" id="home">
+          <img src="../../icons/home.svg" />
+        </a>
+        <a href="../../index.html#gallery" id="gallery">
+          <img src="../../icons/grid.svg" />
+        </a>
+        <div class="divider"></div>
+        <a href="#explanation">
+          <img src="../../icons/align-left.svg" />
+        </a>
+        <div class="connect"></div>
+        <a href="#test">
+          <img src="../../icons/cpu.svg" />
+        </a>
+        <div class="connect"></div>
+        <a href="#code">
+          <img src="../../icons/terminal.svg" />
+        </a>
+        <div class="connect"></div>
+        <a href="#further-reading">
+          <img src="../../icons/book.svg" />
+        </a>
+
+        <select id="choose-paragraph" onchange="scrollParagraph()">
+          <option value="0">Erklärung</option>
+          <option value="1">Testen</option>
+          <option value="2">Code</option>
+          <option value="3">Weiterlesen</option>
+        </select>
+      </nav>
+    </div>
+
+    <h1 id="morse">Morsecode</h1>
+
+    <section id="explanation">
+      <div class="heading">
+          <img src="../../icons/align-left.svg" />
+          <h2>Erklärung</h2>
+      </div>
+
+      <div class="content">
+        <p>
+          Der Morsecode ist ein Code, der im 19. Jahrhundert erfunden wurde. Zunächst von Samuel Morse in unvollständiger Form aufgeschrieben,
+          wurde er später standadrdisiert.
+        </p>
+        <p>
+          Das Codierungsverfahren wurde zur Kommunikation über
+          Telegrafen, aber auch über Funk eingesetzt. Die verschiedenen Codewörter bestehen aus kurzen und langen Signalen, die beispielsweise
+          optisch oder auch akkustisch übertragen werden können.
+        </p>
+        <p>
+          Als Darstellung werden häufig Punkte für kurze Signale, und Striche für lange Signale verwendet. Unten ist eine Liste mit häufig gebrauchten Codewörtern
+          abgebildet.
+        </p>
+        <p class="example example-flex">
+          <span>A &rarr; &bull;&ndash;</span>
+          <span>B &rarr; &ndash;&bull;&bull;&bull;</span>
+          <span>C &rarr; &ndash;&bull;&ndash;&bull;</span>
+          <span>D &rarr; &ndash;&bull;&bull;</span>
+          <span>E &rarr; &bull;</span>
+          <span>F &rarr; &bull;&bull;&ndash;&bull;</span>
+          <span>G &rarr; &ndash;&ndash;&bull;</span>
+          <span>H &rarr; &bull;&bull;&bull;&bull;</span>
+          <span>I &rarr; &bull;&bull;</span>
+          <span>J &rarr; &bull;&ndash;&ndash;&ndash;</span>
+          <span>K &rarr; &ndash;&bull;&ndash;</span>
+          <span>L &rarr; &bull;&ndash;&bull;&bull;</span>
+          <span>M &rarr; &ndash;&ndash;</span>
+          <span>N &rarr; &ndash;&bull;</span>
+          <span>O &rarr; &ndash;&ndash;&ndash;</span>
+          <span>P &rarr; &bull;&ndash;&ndash;&bull;</span>
+          <span>Q &rarr; &ndash;&ndash;&bull;&ndash;</span>
+          <span>R &rarr; &bull;&ndash;&bull;</span>
+          <span>S &rarr; &bull;&bull;&bull;</span>
+          <span>T &rarr; &ndash;</span>
+          <span>U &rarr; &bull;&bull;&ndash;</span>
+          <span>V &rarr; &bull;&bull;&bull;&ndash;</span>
+          <span>W &rarr; &bull;&ndash;&ndash;</span>
+          <span>X &rarr; &ndash;&bull;&bull;&ndash;</span>
+          <span>Y &rarr; &ndash;&bull;&ndash;&ndash;</span>
+          <span>Z &rarr; &ndash;&ndash;&bull;&bull;</span>
+        </p>
+        <p>
+          Häufig wird behauptet der Morsecode sei nicht präfixfrei. Belegt wird diese Behauptung damit, dass ein Codewort
+          der Beginn eines anderen sein kann. Das codierte e sei beispielsweise der Beginn des codierten a.
+          Tatsächlich ist der Morsecode jedoch präfixfrei, da theoretisch ein Codewort immer mit einer Pause beendet wird, die nicht
+          innerhalb eines Codeworts vorkommen kann.
+        </p>
+        <p>
+          Der Morsecode verwendet tatsächlich drei unterschiedliche Pausen: eine zwischen
+          kurzen bzw. langen Signalen, eine längere zwischen Codewörtern, und die längste als Signal zum Ende eines Wortes.
+          Damit kommt der Morsecode auf insgesamt 5 eingesetzte Elemente.
+        </p>
+      </div>
+    </section>
+
+    <section id="test">
+      <div class="heading">
+        <img src="../../icons/cpu.svg" />
+        <h2>Testen</h2>
+      </div>
+
+      <div class="content">
+        <div class="accordion">
+          <input type="checkbox" name="alphabet" id="alphabet">
+          <label for="alphabet">
+            <div class="closed">
+              <img src="../../icons/chevron-right.svg" />
+              Zeichen
+            </div>
+            <div class="opened">
+              <img src="../../icons/chevron-down.svg" />
+              Zeichen
+            </div>
+          </label>
+          <div class="detail">
+            <p>
+              Hier kannst du, wenn du magst, weitere Codewörter des Morsecodes einfügen, oder auch deinen
+              eigenen Code mit kurzen und langen Signalen definieren. Pausen musst du nicht hinzufügen,
+              das machen wir automatisch.
+            </p>
+
+            <div id="list-wrapper">
+
+            </div>
+
+            <button class="codeword-button" onclick="addCode()"><img src="../../icons/plus.svg" /> Codewort hinzufügen</button>
+            <button class="codeword-button" onclick="resetCodes()"><img src="../../icons/rotate-ccw.svg" /> Zurücksetzen</button>
+          </div>
+        </div>
+
+        <div class="accordion">
+          <input type="checkbox" name="more" id="more">
+          <label for="more">
+            <div class="closed">
+              <img src="../../icons/chevron-right.svg" />
+              Mehr
+            </div>
+            <div class="opened">
+              <img src="../../icons/chevron-down.svg" />
+              Mehr
+            </div>
+          </label>
+          <div class="detail">
+            <div class="switch">
+              <input type="checkbox" id="case-sensitive" oninput="testInputChanged()" />
+              <label for="case-sensitive">
+                <p>
+                  Groß- / Kleinschreibung beachten
+                </p>
+                <div class="checked"><div class="circle"></div></div>
+                <div class="unchecked"><div class="disabled-circle"></div></div>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div class="input-area">
+          <div class="top">
+            <div class="left">
+              <img src="../../icons/edit-2.svg" />
+              Eingabe
+            </div>
+            <div class="right"></div>
+          </div>
+          <textarea class="input" id="test-input" name="input" rows="8" placeholder="Gib hier einen Text ein" oninput="testInputChanged()"></textarea>
+        </div>
+
+        <div class="direction-select">
+          <input type="radio" name="direction" id="encrypt" value="encrypt" onclick="testDirectionChanged()" checked>
+          <label for="encrypt" id="encrypt-label">
+            <img src="../../icons/lock.svg" />
+            Codieren
+          </label>
+          <input type="radio" name="direction" id="decrypt" value="decrypt" onclick="testDirectionChanged()">
+          <label for="decrypt" id="decrypt-label">
+            <img src="../../icons/unlock.svg" />
+            Decodieren
+          </label>
+        </div>
+
+        <div class="input-area">
+          <div class="top">
+            <div class="left">
+              <img src="../../icons/lock.svg" id="direction-icon-lock" />
+              <img src="../../icons/unlock.svg" id="direction-icon-unlock" />
+              Ausgabe
+            </div>
+            <div class="right"></div>
+          </div>
+          <textarea class="output" id="test-output" name="input" rows="8" placeholder="Hier steht dann der verschlüsselte Text" readonly></textarea>
+        </div>
+      </div>
+
+      <button id="copy-button" onclick="copy(this)" class="copy-button">Kopieren</button>
+    </section>
+
+    <section id="code">
+      <div class="heading">
+        <img src="../../icons/terminal.svg" />
+        <h2>Code</h2>
+      </div>
+
+      <div class="content">
+        <div class="accordion show-code top-level mobile-instructions-container">
+          <input type="checkbox" name="code-instructions" id="code-instructions">
+          <label for="code-instructions">
+            <div class="closed">
+              <img src="../../icons/chevron-right.svg" />
+              Codetutorial einblenden
+            </div>
+            <div class="opened">
+              <img src="../../icons/chevron-down.svg" />
+              Codetutorial einblenden
+            </div>
+          </label>
+          <div class="detail">
+            <div id="mobile-instructions">
+
+            </div>
+          </div>
+        </div>
+
+        <div class="instructions" id="instruction-container">
+          <p>
+            Erstellen wir zuerst ein Objekt mit dem Namen Morse, das all die wichtigen Funktionen bündelt.
+          </p>
+          <p>
+            Dieses Objekt soll eine Funktion zum Codieren und eine zum Decodieren umfassen. Fügen wir diese mal hinzu.
+          </p>
+          <p>
+            Sie brauchen als Parameter die Nachricht, ein Array mit Codewörtern, und einen Wahrheitswert,
+            der angibt, was mit Buchstaben passiert, die kein passendes Codewort haben.
+          </p>
+          <p>
+            Das gilt für beide Funktionen. Das Array mit Codewörtern besteht dabei selbst aus Arrays, die
+            an Index 0 das Codewort und an Index 1 den dazugehörigen Buchstaben als Strings definieren. (z.B. [&quot;&bull;&quot;, &quot;e&quot])
+          </p>
+          <p>
+            Schauen wir uns zunächst die Funktion zum Codieren an. Wir definieren eine Variable output, die später die codierte Nachricht
+            beinhalten soll. Somit soll sie am Ende der Funktion auch wieder zurückgegeben werden.
+          </p>
+          <p>
+            Nun iterieren wir über jeden Buchstaben der Nachricht.
+          </p>
+          <p>
+            Ist der betrachtete Buchstabe ein Leerzeichen, fügen wir die passende Darstellung im Morsecode output an, und
+            gehen zum nächsten Buchstaben über.
+          </p>
+          <p>
+            Andernfalls gehen wir durch jedes Codewort und schauen, ob es zu dem betrachteten Buchstaben passt.
+          </p>
+          <p>
+            Falls das passende Codewort gefunden wurde, wird es in einer Variable gespeichert und wir gehen zum nächsten Schritt. Andernfalls
+            bleibt die Variable leer.
+          </p>
+          <p>
+            Diese Variable müssen wir natürlich zunächst vor der Schleife initialisieren.
+          </p>
+          <p>
+            Ist die Variable nach der Schleife immer noch leer, wurde kein passendes Codewort zum Buchstaben gefunden.
+            Nun wird abhängig vom Parameter skip der betrachtete Buchstabe selbst mit einem Leerzeichen,
+            oder gar nichts an den output angehängt, bevor zum nächsten Buchstaben übergangen wird.
+          </p>
+          <p>
+            Wurde allerdings ein passendes Codewort gefunden, wird das Codewort an output angehängt, gefolgt von einem Leerzeichen, um das Ende des
+            Morsesignals zu signalisieren.
+          </p>
+          <p>
+            Ähnliches passiert in der Methode zum Decodieren. Hier wird aber statt durch jeden Buchstaben, durch jedes Signal iteriert.
+            Diese werden immer durch Leerzeichen getrennt, sodass die Nachricht, die als Parameter übergeben wurde, an den Leerzeichen aufgeteilt wird.
+          </p>
+          <p>
+            Zwei Leerzeichen im Morsecode signalisieren in dieser Implementation ein Lerrzeichen im Decodierten (also einen leeren String nach der Aufteilung bei Leerzeichen),
+            sodass dieser Fall zuerst abgefangen wird.
+          </p>
+          <p>
+            Es wird ähnlich wie bei der Funktion zum Codieren hier der passende Buchstabe zum Codewort gesucht.
+          </p>
+          <p>
+            Und auf dem Ergebnis beruhend entsprechend der output ergänzt.
+          </p>
+          <p>
+            Fertig! 🎉
+          </p>
+        </div>
+        <div class="code-wrapper">
+          <div class="code" id="code-container">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="further-reading">
+      <div class="heading">
+        <img src="../../icons/book.svg" />
+        <h2>Weiterlesen</h2>
+      </div>
+      <div class="content">
+        <a href="https://de.wikipedia.org/wiki/Morsecode">
+          Wikipedia über den Morsecode
+        </a>
+
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="first-column">
+      <a href="../../index.html" class="wpaad-footer">
+        wpaad
+      </a>
+      <p class="authors">
+        Erstellt von <a href="https://www.github.com/oswaldtheprogrammer">@OswaldTheProgrammer</a> und <a href="https://www.github.com/codebyfinn">@CodeByFinn</a>.
+      </p>
+    </div>
+
+    <div class="licenses-and-policy">
+      <a class="policy" href="privacy-policy.html">Datenschutzerklärung</a>
+      <p>Schriftarten von <a href="https://fonts.google.com">Google Fonts</a> lizensiert unter der <a href="http://www.apache.org/licenses/LICENSE-2.0">Apache License, Version 2.0</a></p>
+      <p>Icons von <a href="https://feathericons.com/">Feathericons</a> lizensiert unter der <a href="https://github.com/feathericons/feather/blob/master/LICENSE">MIT License</a></p>
+    </div>
+  </footer>
+</body>
+
+</html>
