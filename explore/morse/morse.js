@@ -4,7 +4,7 @@
 let morse = {
   encode(message, codes, skip = false) {
     let output = "";
-    for (letter of message) {
+    for (let letter of message) {
 
       if (letter == " ") {
         output += "  ";
@@ -13,7 +13,7 @@ let morse = {
 
       let encoded = "";
 
-      for (code of codes.slice().reverse()) {
+      for (let code of codes.slice().reverse()) {
         if (letter == code[1]) {
           encoded = code[0];
           break;
@@ -37,7 +37,7 @@ let morse = {
 
   decode(message, codes, skip = false) {
     let output = "";
-    for (letter of message.split(" ")) {
+    for (let letter of message.split(" ")) {
 
       if (letter == "") {
         output += " ";
@@ -46,7 +46,7 @@ let morse = {
 
       let decoded = "";
 
-      for (code of codes.slice().reverse()) {
+      for (let code of codes.slice().reverse()) {
         if (letter == code[0]) {
           decoded = code[1];
           break;
@@ -248,7 +248,7 @@ function deleteCode(buttonElement) {
     button.id -= 1;
 
     let inputs = listWrapper.children[i].getElementsByTagName("input");
-    for (input of inputs) {
+    for (let input of inputs) {
       input.id -= 1;
     }
   }
