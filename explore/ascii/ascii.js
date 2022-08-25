@@ -4,7 +4,7 @@
 let ascii = {
   encode(message, skip = false) {
     let output = "";
-    for (letter of message) {
+    for (let letter of message) {
       let unicodeIndex = letter.codePointAt(0);
 
       if (unicodeIndex <= 127) {
@@ -28,7 +28,7 @@ let ascii = {
 
   decode(message, skip = false) {
     let output = "";
-    for (letter of message.split(" ")) {
+    for (let letter of message.split(" ")) {
       if (letter == "") {
         output += " ";
       }
@@ -51,7 +51,7 @@ let codeLines = [
   '<span class="indent"></span> <span class="code-line"> <span class="function"> encode</span>(message, codewords, skip<span class="keyword"> =</span> <span class="bool">false</span>) {</span>',
   '<span class="indent"></span><span class="indent"></span> <span class="code-line"><span class="keyword">let </span>output<span class="keyword"> =</span> <span class="string">""</span>;</span>',
   ' <span class="code-line"></span>',
-  '<span class="indent"></span><span class="indent"></span> <span class="code-line"><span class="keyword">for<span class="function"> </span></span>(letter <span class="keyword">of </span>message) {</span>',
+  '<span class="indent"></span><span class="indent"></span> <span class="code-line"><span class="keyword">for<span class="function"> </span></span>(<span class="keyword">let </span>letter <span class="keyword">of </span>message) {</span>',
   ' <span class="code-line"></span>',
   '<span class="indent"></span><span class="indent"></span><span class="indent"></span> <span class="code-line"><span class="keyword">if<span class="function"> </span></span>(letter<span class="keyword"> =</span><span class="keyword">= </span><span class="string">" "</span>) {</span>',
   '<span class="indent"></span><span class="indent"></span><span class="indent"></span><span class="indent"></span><span class="indent"></span> <span class="code-line">output <span class="keyword">+</span><span class="keyword">= </span><span class="string">""</span>;</span>',
@@ -94,7 +94,7 @@ let codeLines = [
   ' <span class="code-line"></span>',
   '<span class="indent"></span><span class="indent"></span><span class="indent"></span> <span class="code-line"><span class="keyword">let </span>decoded<span class="keyword"> =</span> <span class="string">""</span>;</span>',
   ' <span class="code-line"></span>',
-  '<span class="indent"></span><span class="indent"></span><span class="indent"></span> <span class="code-line"><span class="keyword">for<span class="function"> </span></span>(codeword <span class="keyword">of </span>codewords) {</span>',
+  '<span class="indent"></span><span class="indent"></span><span class="indent"></span> <span class="code-line"><span class="keyword">for<span class="function"> </span></span>(<span class="keyword">let </span>codeword <span class="keyword">of </span>codewords) {</span>',
   '<span class="indent"></span><span class="indent"></span><span class="indent"></span><span class="indent"></span> <span class="code-line"><span class="keyword">if<span class="function"> </span></span>(letter<span class="keyword"> =</span><span class="keyword">= </span>codewordword[<span class="number">0</span>]) {</span>',
   '<span class="indent"></span><span class="indent"></span><span class="indent"></span><span class="indent"></span><span class="indent"></span> <span class="code-line">decoded<span class="keyword"> =</span> code[<span class="number">1</span>];</span>',
   '<span class="indent"></span><span class="indent"></span><span class="indent"></span><span class="indent"></span><span class="indent"></span> <span class="code-line">break;</span>',
