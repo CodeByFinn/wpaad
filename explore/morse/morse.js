@@ -2,7 +2,7 @@
 
 // Code for encoding and decoding with morse
 let morse = {
-  encode(message, codes, skip = false) {
+  encode(message, codes, skip = false, caseSensitive = false) {
     let output = "";
     for (let letter of message) {
 
@@ -14,9 +14,16 @@ let morse = {
       let encoded = "";
 
       for (let code of codes.slice().reverse()) {
-        if (letter == code[1]) {
-          encoded = code[0];
-          break;
+        if (caseSensitive) {
+          if (letter == code[1]) {
+            encoded = code[0];
+            break;
+          }
+        } else {
+          if (letter.toLowerCase() == code[1].toLowerCase()) {
+            encoded = code[0];
+            break;
+          }
         }
       }
 
@@ -337,16 +344,11 @@ function testInputChanged() {
     inputMessage = sanitizeInput(inputMessage, false);
 
     testInput.value = inputMessage;
-  } else {
-    if (!caseSensitive.checked) {
-      // Possible problem: the codewords don't get converted to upper case
-      inputMessage = inputMessage.toUpperCase();
-    }
   }
 
   let outputMessage;
   if (direction.checked) {
-    outputMessage = morse.encode(inputMessage, codes);
+    outputMessage = morse.encode(inputMessage, codes, false, caseSensitive.checked);
   } else {
     outputMessage = morse.decode(inputMessage, codes);
   }
