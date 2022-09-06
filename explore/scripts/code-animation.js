@@ -90,7 +90,7 @@ if (document.getElementById("mobile-instructions")) {
 // Ability to click on instructions, 
 // only added after mobile instructions, to prevent this behaviour on mobile
 for (let i = 0; i < instructionContainer.children.length; i++) {
-  instructionContainer.addEventListener("click", function(event) {
+  instructionContainer.children[i].addEventListener("click", function(event) {
     window.scrollTo(window.scrollX, event.target.getBoundingClientRect().top + window.scrollY - window.innerHeight / 2 + 110);
   });
 }
