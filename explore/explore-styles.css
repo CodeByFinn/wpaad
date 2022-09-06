@@ -22,7 +22,7 @@ body {
   --text: #000;
   --primary-color: #b55cff;
   --light-color: #fff;
-  --nav-color: rgb(220, 220, 235);
+  --nav-color: rgba(220, 220, 235, 0.6);
 
   background: var(--background);
   color: var(--text);
@@ -643,32 +643,43 @@ Possible key input by having a slider - problem: many steps when alphabet is lon
 
 #test #encrypt-label,
 #test #decrypt-label {
+  position: relative;
+
   display: flex;
   align-items: center;
   justify-content: center;
 
-  width: 200px;
-  padding: 10px;
+  width: 250px;
+  padding: 15px;
   margin: 0 20px;
 
   background: var(--secondary-background);
+  border: 2px solid var(--secondary-background);
   border-radius: 10px;
 }
 
-#test #encrypt-label img,
-#test #decrypt-label img {
+#test #encrypt-label img:last-of-type,
+#test #decrypt-label img:last-of-type {
   margin-right: 10px;
+  filter: brightness(0); /* Black */
+}
+
+#test #encrypt-label .checked-indicator,
+#test #decrypt-label .checked-indicator {
+  position: absolute;
+  left: 15px;
+
+  display: none;
 }
 
 #test #encrypt:checked ~ #encrypt-label,
 #test #decrypt:checked ~ #decrypt-label {
-  background: var(--primary-color);
-  color: #fff;
+  border: 2px solid var(--primary-color);
 }
 
-#test #encrypt:checked ~ #encrypt-label img,
-#test #decrypt:checked ~ #decrypt-label img {
-  filter: brightness(0) invert(1); /* White */
+#test #encrypt:checked ~ #encrypt-label .checked-indicator,
+#test #decrypt:checked ~ #decrypt-label .checked-indicator {
+  display: block;
 }
 
 #test .copy-button {
@@ -723,6 +734,8 @@ Possible key input by having a slider - problem: many steps when alphabet is lon
 
   border-radius: 10px;
   border: 2px solid var(--secondary-background);
+
+  cursor: pointer;
 }
 #code p:last-of-type {
   margin-bottom: 100vh;
@@ -957,19 +970,6 @@ footer a:hover {
 }
 
 
-@media (prefers-color-scheme: dark) {
-  body {
-    --background: #15151c;
-    --secondary-background: #26262b;
-    --text: #ededed;
-    --light-color: #ededed;
-    --nav-color: #3c3c44;
-  }
-
-  nav a img {
-    filter: brightness(0) invert(1); /* White */
-  }
-}
 
 @media (prefers-reduced-motion: reduce) {
   html {
@@ -1021,6 +1021,8 @@ footer a:hover {
     padding: 7px 7px;
 
     background: var(--nav-color);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     border-radius: 30px;
   }
 
@@ -1050,17 +1052,23 @@ footer a:hover {
     right: 8px;
     text-align: center; /* Doesn't work in safari */
 
-    padding: 0 10px;
+    padding: 0 12px;
 
     background: var(--background);
     outline: none;
     border: none;
-    border-radius: 20px;
-    border: 2px solid var(--primary-color);
+    border-radius: 25px;
 
     color: var(--text);
+    font-weight: bold;
     font-size: 15px;
     height: 40px;
+
+    transition: background .2s;
+  }
+  nav select:hover {
+    background: var(--primary-color);
+    color: var(--light-color);
   }
 
   nav a {
@@ -1068,8 +1076,10 @@ footer a:hover {
     height: 40px;
     margin: 0;
   }
-  nav img {
+  nav #home img,
+  nav #gallery img {
     height: 23px;
+    filter: brightness(0);
   }
   nav .divider {
     display: none;
@@ -1120,7 +1130,7 @@ footer a:hover {
   #test .key-settings {
     flex-direction: column;
   }
-  
+
   #test .direction-select {
     flex-direction: column;
     gap: 30px;
@@ -1145,6 +1155,8 @@ footer a:hover {
   #code p {
     margin-bottom: 20px;
     margin-right: 0;
+
+    cursor: default;
   }
   #code p:last-of-type {
     margin-bottom: 20px;
@@ -1206,5 +1218,26 @@ footer a:hover {
   #analysis .frequency-statistic .data span:last-of-type {
     font-family: "Roboto Mono", monospace;
     padding: 10px;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    --background: #15151c;
+    --secondary-background: #26262b;
+    --text: #ededed;
+    --light-color: #ededed;
+    --nav-color: rgba(80, 80, 88, 0.6);
+  }
+
+  nav a img,
+  nav #home img,
+  nav #gallery img {
+    filter: brightness(0) invert(1); /* White */
+  }
+
+  #test #encrypt-label img:last-of-type,
+  #test #decrypt-label img:last-of-type {
+    filter: brightness(0) invert(1); /* White */
   }
 }
