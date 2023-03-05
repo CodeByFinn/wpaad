@@ -426,6 +426,16 @@ footer .licenses-and-policy {
 }
 
 footer .wpaad-footer {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+footer .wpaad-footer img {
+  height: 35px;
+}
+
+footer .wpaad-footer p {
   font-family: "Roboto Slab", monospace;
   font-size: 30px;
   color: var(--primary-color);
