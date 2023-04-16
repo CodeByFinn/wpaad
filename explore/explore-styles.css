@@ -442,6 +442,57 @@ textarea {
 }
 
 
+#overview ul {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-auto-rows: 1fr;
+  gap: 40px;
+
+  list-style-type: none;
+}
+
+#overview a {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+
+  height: 100%;
+
+  padding: 20px;
+
+  background: var(--secondary-background);
+  border-radius: 10px;
+  border: 2px solid var(--secondary-background);
+
+  transition: all .2s;
+}
+#overview a:hover {
+  border: 2px solid var(--primary-color);
+}
+#overview a {
+  text-decoration: none;
+}
+
+#overview .name {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+#overview p {
+  color: var(--text);
+  /* Doesn't completely remove underline */
+  text-decoration: none;
+}
+#overview .name p {
+  margin-left: 20px;
+}
+
+
 #explanation p {
   margin: 30px 0;
 }
@@ -477,6 +528,24 @@ textarea {
 /* Showing a condensed version of the vigenere square on mobile */
 #explanation #mobile-vigenere-example {
   display: none;
+}
+
+#explanation .accordion .opened,
+#explanation .accordion .closed {
+  justify-content: center;
+  
+  font-weight: normal;
+  font-size: inherit;
+}
+
+#explanation .accordion .opened p,
+#explanation .accordion .closed p {
+  margin: 0;
+  margin-left: 20px;
+}
+
+#explanation .accordion p {
+  margin: 10px 0;
 }
 
 
@@ -1106,6 +1175,23 @@ footer a:hover {
   }
 
 
+  #overview ul {
+    grid-template-columns: 1fr;
+    grid-auto-rows: auto;
+    gap: 20px;
+  }
+
+  #overview a {
+    padding: 10px;
+  }
+
+  #overview .description {
+    display: none;
+  }
+  #overview .name {
+    margin-bottom: 0;
+  }
+  
   #explanation .example {
     font-size: 16px;
     letter-spacing: 1px;
@@ -1206,6 +1292,10 @@ footer a:hover {
   }
   nav img {
     height: 25px;
+  }
+
+  #overview ul {
+    grid-template-columns: 1fr 1fr;
   }
 
   #code .content .instructions {
