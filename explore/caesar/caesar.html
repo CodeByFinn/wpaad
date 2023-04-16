@@ -32,6 +32,10 @@
             <img src="../../icons/grid.svg" />
           </a>
           <div class="divider"></div>
+          <a href="#overview">
+            <img src="../../icons/layers.svg" />
+          </a>
+          <div class="connect"></div>
           <a href="#explanation">
             <img src="../../icons/align-left.svg" />
           </a>
@@ -53,16 +57,89 @@
           </a>
 
           <select id="choose-paragraph" onchange="scrollParagraph()">
-            <option value="0">Erklärung</option>
-            <option value="1">Testen</option>
-            <option value="2">Kryptoanalyse</option>
-            <option value="3">Code</option>
-            <option value="4">Weiterlesen</option>
+            <option value="0">Inhalt</option>
+            <option value="1">Erklärung</option>
+            <option value="2">Testen</option>
+            <option value="3">Kryptoanalyse</option>
+            <option value="4">Code</option>
+            <option value="5">Weiterlesen</option>
           </select>
         </nav>
       </div>
 
-    <h1 id="caesar">Caesar-Verschlüsselung</h1>
+    <h1 id="caesar">Caesar-Ver&shy;schlüs&shy;sel&shy;ung</h1>
+
+    <section id="overview">
+      <div class="heading">
+        <img src="../../icons/layers.svg" />
+        <h2>Was dich erwartet</h2>
+      </div>
+
+      <div class="content">
+        <ul>
+          <li>
+            <a href="#explanation">
+              <div class="name">
+                <img src="../../icons/align-left.svg" />
+                <p>Erklärung</p>
+              </div>
+              <p class="description">
+                Erfahre alles über die Geschichte und Funktionsweise der Caesar-Verschlüsselung.
+              </p>
+            </a>
+          </li>
+
+          <li>
+            <a href="#test">
+              <div class="name">
+                <img src="../../icons/cpu.svg" />
+                <p>Testen</p>
+              </div>
+              <p class="description">
+                Teste die Caesar-Verschlüsselung selbst aus.
+              </p>
+            </a>
+          </li>
+
+          <li>
+            <a href="#analysis">
+              <div class="name">
+                <img src="../../icons/tool.svg" />
+                <p>Kryptoanalyse</p>
+              </div>
+              <p class="description">
+                Nutze Brute Force und Häufigkeitsanalyse, um die Caesar-Verschlüsselung 
+                zu entziffern.
+              </p>
+            </a>
+          </li>
+
+          <li>
+            <a href="#code">
+              <div class="name">
+                <img src="../../icons/terminal.svg" />
+                <p>Code</p>
+              </div>
+              <p class="description">
+                Programmiere die Verschlüsselung mithilfe unseres interaktiven Tutorials.
+              </p>
+            </a>
+          </li>
+
+          <li>
+            <a href="#further-reading">
+              <div class="name">
+                <img src="../../icons/book.svg" />
+                <p>Weiterlesen</p>
+              </div>
+              <p class="description">
+                Links, um mehr über die Caesar-Verschlüsselung zu erfahren.
+              </p>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </section>
 
     <section id="explanation">
       <div class="heading">
@@ -76,6 +153,25 @@
           Es handelt sich bei diesem Verfahren um ein monoalphabetisches Substitutionsverfahren.
           Das bedeutet, dass jeder Buchstabe im Klartext durch ein einzelnes Geheimtextalphabet zu einem anderen Buchstaben in der Verschlüsselung wird.
         </p>
+        <div class="accordion top-level">
+          <input type="checkbox" name="caesar-person" id="caesar-person">
+          <label for="caesar-person">
+            <div class="closed">
+              <img src="../../icons/info.svg" />
+              <p>Wer war Caesar?</p>
+            </div>
+            <div class="opened">
+              <img src="../../icons/info.svg" />
+              <p>Wer war Caesar?</p>
+            </div>
+          </label>
+          <div class="detail">
+            <p>
+              Gaius Julius Caesar lebte von 100 v. Chr. bis 44 v. Chr. und war ein für die römische Geschichte 
+              bedeutender Feldherr und Alleinherrscher Roms.
+            </p>
+          </div>
+        </div>
         <p>
           Als Vorbereitung für die Ver- und Entschlüsselung muss zunächst ein Schlüssel zwischen 1 und 25 (oder der Länge des verwendeten Alphabets - 1)
           festgelegt werden.
@@ -84,6 +180,26 @@
         <p>
           Nun wird das Klartextalphabet aufgeschrieben.
         </p>
+        <div class="accordion top-level">
+          <input type="checkbox" name="alphabet-explanation" id="alphabet-explanation">
+          <label for="alphabet-explanation">
+            <div class="closed">
+              <img src="../../icons/info.svg" />
+              <p>Was sind Klartext- und Geheimtextalphabet?</p>
+            </div>
+            <div class="opened">
+              <img src="../../icons/info.svg" />
+              <p>Was sind Klartext- und Geheimtextalphabet?</p>
+            </div>
+          </label>
+          <div class="detail">
+            <p>
+              Das Klartextalphabet beschreibt die Reihenfolge und Menge der Zeichen, die im Klartext 
+              vorhanden sein dürfen. Analog beschreibt das Geheimtextalphabet Reihenfolge und Menge 
+              der Zeichen, die im Geheimtext vorhanden sein dürfen.
+            </p>
+          </div>
+        </div>
         <p class="example">
           abcdefghijklmnopqrstuvwxyz
         </p>
